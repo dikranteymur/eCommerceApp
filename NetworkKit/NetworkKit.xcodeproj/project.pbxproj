@@ -8,11 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		20D23DD92B42E24500E4C9A1 /* NetworkKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 20D23DD82B42E24500E4C9A1 /* NetworkKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		20D23E512B42EBD900E4C9A1 /* NetworkKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D23E502B42EBD900E4C9A1 /* NetworkKit.swift */; };
+		20D23E552B42EC6200E4C9A1 /* Products.json in Resources */ = {isa = PBXBuildFile; fileRef = 20D23E542B42EC6200E4C9A1 /* Products.json */; };
+		20D23E582B42ECC600E4C9A1 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D23E572B42ECC600E4C9A1 /* ProductModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		20D23DD52B42E24500E4C9A1 /* NetworkKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20D23DD82B42E24500E4C9A1 /* NetworkKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkKit.h; sourceTree = "<group>"; };
+		20D23E502B42EBD900E4C9A1 /* NetworkKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkKit.swift; sourceTree = "<group>"; };
+		20D23E542B42EC6200E4C9A1 /* Products.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Products.json; sourceTree = "<group>"; };
+		20D23E572B42ECC600E4C9A1 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +35,9 @@
 		20D23DCB2B42E24500E4C9A1 = {
 			isa = PBXGroup;
 			children = (
+				20D23E562B42ECAE00E4C9A1 /* Model */,
+				20D23E542B42EC6200E4C9A1 /* Products.json */,
+				20D23E502B42EBD900E4C9A1 /* NetworkKit.swift */,
 				20D23DD72B42E24500E4C9A1 /* NetworkKit */,
 				20D23DD62B42E24500E4C9A1 /* Products */,
 			);
@@ -48,6 +57,14 @@
 				20D23DD82B42E24500E4C9A1 /* NetworkKit.h */,
 			);
 			path = NetworkKit;
+			sourceTree = "<group>";
+		};
+		20D23E562B42ECAE00E4C9A1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				20D23E572B42ECC600E4C9A1 /* ProductModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +137,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20D23E552B42EC6200E4C9A1 /* Products.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +148,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20D23E512B42EBD900E4C9A1 /* NetworkKit.swift in Sources */,
+				20D23E582B42ECC600E4C9A1 /* ProductModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
