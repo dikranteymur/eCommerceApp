@@ -107,7 +107,6 @@
 			children = (
 				20D23E5E2B42F08A00E4C9A1 /* App */,
 				20D23E662B42F15400E4C9A1 /* Base */,
-				20D23E632B42F0EE00E4C9A1 /* Scene */,
 				20D23E652B42F0F700E4C9A1 /* SupportingFiles */,
 				20D23E642B42F0F100E4C9A1 /* Resources */,
 			);
@@ -122,13 +121,6 @@
 				20D23E5F2B42F09800E4C9A1 /* AppRouter.swift */,
 			);
 			path = App;
-			sourceTree = "<group>";
-		};
-		20D23E632B42F0EE00E4C9A1 /* Scene */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Scene;
 			sourceTree = "<group>";
 		};
 		20D23E642B42F0F100E4C9A1 /* Resources */ = {

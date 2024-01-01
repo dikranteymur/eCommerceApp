@@ -8,12 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		20D23F532B432C9E00E4C9A1 /* DesignKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 20D23F522B432C9E00E4C9A1 /* DesignKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		20D23F612B432F7300E4C9A1 /* Extension+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D23F602B432F7300E4C9A1 /* Extension+UICollectionView.swift */; };
+		20D23F632B432F9D00E4C9A1 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D23F622B432F9D00E4C9A1 /* Extension+UIColor.swift */; };
+		20D23F652B432FB100E4C9A1 /* Extension+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D23F642B432FB100E4C9A1 /* Extension+UIFont.swift */; };
+		20D23F692B432FED00E4C9A1 /* ProductListCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D23F682B432FED00E4C9A1 /* ProductListCollectionCell.swift */; };
+		20D23F6B2B43300800E4C9A1 /* ProductListCollectionCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D23F6A2B43300800E4C9A1 /* ProductListCollectionCellModel.swift */; };
+		20D23F6E2B4330BB00E4C9A1 /* UtilityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D23F6C2B4330AD00E4C9A1 /* UtilityKit.framework */; };
 		25A48069FB5535DEB4A19AFE /* libPods-DesignKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A53CD76DE94DEBB0F42E86 /* libPods-DesignKit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		20D23F4F2B432C9E00E4C9A1 /* DesignKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DesignKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20D23F522B432C9E00E4C9A1 /* DesignKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DesignKit.h; sourceTree = "<group>"; };
+		20D23F602B432F7300E4C9A1 /* Extension+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UICollectionView.swift"; sourceTree = "<group>"; };
+		20D23F622B432F9D00E4C9A1 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
+		20D23F642B432FB100E4C9A1 /* Extension+UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIFont.swift"; sourceTree = "<group>"; };
+		20D23F682B432FED00E4C9A1 /* ProductListCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListCollectionCell.swift; sourceTree = "<group>"; };
+		20D23F6A2B43300800E4C9A1 /* ProductListCollectionCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListCollectionCellModel.swift; sourceTree = "<group>"; };
+		20D23F6C2B4330AD00E4C9A1 /* UtilityKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UtilityKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2276EB182F74A6F652104900 /* Pods-DesignKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesignKit.debug.xcconfig"; path = "Target Support Files/Pods-DesignKit/Pods-DesignKit.debug.xcconfig"; sourceTree = "<group>"; };
 		32A53CD76DE94DEBB0F42E86 /* libPods-DesignKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DesignKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C279D86CA5C626C8A97EAD47 /* Pods-DesignKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesignKit.release.xcconfig"; path = "Target Support Files/Pods-DesignKit/Pods-DesignKit.release.xcconfig"; sourceTree = "<group>"; };
@@ -24,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20D23F6E2B4330BB00E4C9A1 /* UtilityKit.framework in Frameworks */,
 				25A48069FB5535DEB4A19AFE /* libPods-DesignKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -34,6 +47,7 @@
 		12821B7BCA642329CCAA9A4F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				20D23F6C2B4330AD00E4C9A1 /* UtilityKit.framework */,
 				32A53CD76DE94DEBB0F42E86 /* libPods-DesignKit.a */,
 			);
 			name = Frameworks;
@@ -42,6 +56,8 @@
 		20D23F452B432C9E00E4C9A1 = {
 			isa = PBXGroup;
 			children = (
+				20D23F662B432FC900E4C9A1 /* Cells */,
+				20D23F5F2B432F6000E4C9A1 /* Extensions */,
 				20D23F512B432C9E00E4C9A1 /* DesignKit */,
 				20D23F502B432C9E00E4C9A1 /* Products */,
 				CF2E2C6B1A9D7F3698D44E16 /* Pods */,
@@ -63,6 +79,33 @@
 				20D23F522B432C9E00E4C9A1 /* DesignKit.h */,
 			);
 			path = DesignKit;
+			sourceTree = "<group>";
+		};
+		20D23F5F2B432F6000E4C9A1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				20D23F602B432F7300E4C9A1 /* Extension+UICollectionView.swift */,
+				20D23F622B432F9D00E4C9A1 /* Extension+UIColor.swift */,
+				20D23F642B432FB100E4C9A1 /* Extension+UIFont.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		20D23F662B432FC900E4C9A1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				20D23F672B432FD000E4C9A1 /* ProductListCollectionCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		20D23F672B432FD000E4C9A1 /* ProductListCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				20D23F682B432FED00E4C9A1 /* ProductListCollectionCell.swift */,
+				20D23F6A2B43300800E4C9A1 /* ProductListCollectionCellModel.swift */,
+			);
+			path = ProductListCollectionCell;
 			sourceTree = "<group>";
 		};
 		CF2E2C6B1A9D7F3698D44E16 /* Pods */ = {
@@ -119,6 +162,7 @@
 				TargetAttributes = {
 					20D23F4E2B432C9E00E4C9A1 = {
 						CreatedOnToolsVersion = 15.1;
+						LastSwiftMigration = 1510;
 					};
 				};
 			};
@@ -180,6 +224,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20D23F612B432F7300E4C9A1 /* Extension+UICollectionView.swift in Sources */,
+				20D23F652B432FB100E4C9A1 /* Extension+UIFont.swift in Sources */,
+				20D23F632B432F9D00E4C9A1 /* Extension+UIColor.swift in Sources */,
+				20D23F692B432FED00E4C9A1 /* ProductListCollectionCell.swift in Sources */,
+				20D23F6B2B43300800E4C9A1 /* ProductListCollectionCellModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +364,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2276EB182F74A6F652104900 /* Pods-DesignKit.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -338,6 +388,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -347,6 +398,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C279D86CA5C626C8A97EAD47 /* Pods-DesignKit.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
