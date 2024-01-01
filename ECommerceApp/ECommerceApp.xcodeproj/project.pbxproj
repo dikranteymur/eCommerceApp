@@ -13,6 +13,7 @@
 		20D23DBF2B42E09A00E4C9A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20D23DBD2B42E09A00E4C9A1 /* Main.storyboard */; };
 		20D23DC12B42E09D00E4C9A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20D23DC02B42E09D00E4C9A1 /* Assets.xcassets */; };
 		20D23DC42B42E09D00E4C9A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20D23DC22B42E09D00E4C9A1 /* LaunchScreen.storyboard */; };
+		4F4026BBE11F97A1A250B766 /* Pods_ECommerceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF9C358A9AB3B57C85CB60FE /* Pods_ECommerceApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		20D23DC02B42E09D00E4C9A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20D23DC32B42E09D00E4C9A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		20D23DC52B42E09D00E4C9A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8ADC65BAE987487F7E8B9C92 /* Pods-ECommerceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ECommerceApp.debug.xcconfig"; path = "Target Support Files/Pods-ECommerceApp/Pods-ECommerceApp.debug.xcconfig"; sourceTree = "<group>"; };
+		C8DC51DD826FA0FB36F9A255 /* Pods-ECommerceApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ECommerceApp.release.xcconfig"; path = "Target Support Files/Pods-ECommerceApp/Pods-ECommerceApp.release.xcconfig"; sourceTree = "<group>"; };
+		DF9C358A9AB3B57C85CB60FE /* Pods_ECommerceApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ECommerceApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F4026BBE11F97A1A250B766 /* Pods_ECommerceApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				20D23DB62B42E09A00E4C9A1 /* ECommerceApp */,
 				20D23DB52B42E09A00E4C9A1 /* Products */,
+				F8DF9A4FA648FB9342831AE6 /* Pods */,
+				3FCC05AA33B90EF4DE51821A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,24 @@
 			path = ECommerceApp;
 			sourceTree = "<group>";
 		};
+		3FCC05AA33B90EF4DE51821A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DF9C358A9AB3B57C85CB60FE /* Pods_ECommerceApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F8DF9A4FA648FB9342831AE6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8ADC65BAE987487F7E8B9C92 /* Pods-ECommerceApp.debug.xcconfig */,
+				C8DC51DD826FA0FB36F9A255 /* Pods-ECommerceApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 20D23DC82B42E09D00E4C9A1 /* Build configuration list for PBXNativeTarget "ECommerceApp" */;
 			buildPhases = (
+				48E249545DF224D3C46C142D /* [CP] Check Pods Manifest.lock */,
 				20D23DB02B42E09A00E4C9A1 /* Sources */,
 				20D23DB12B42E09A00E4C9A1 /* Frameworks */,
 				20D23DB22B42E09A00E4C9A1 /* Resources */,
+				2F3DECBB457170B800FE53FD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2F3DECBB457170B800FE53FD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ECommerceApp/Pods-ECommerceApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ECommerceApp/Pods-ECommerceApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ECommerceApp/Pods-ECommerceApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		48E249545DF224D3C46C142D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ECommerceApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		20D23DB02B42E09A00E4C9A1 /* Sources */ = {
@@ -287,6 +356,7 @@
 		};
 		20D23DC92B42E09D00E4C9A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8ADC65BAE987487F7E8B9C92 /* Pods-ECommerceApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -315,6 +385,7 @@
 		};
 		20D23DCA2B42E09D00E4C9A1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8DC51DD826FA0FB36F9A255 /* Pods-ECommerceApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
