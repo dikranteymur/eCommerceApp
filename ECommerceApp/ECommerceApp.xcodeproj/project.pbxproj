@@ -13,8 +13,24 @@
 		20D23DBF2B42E09A00E4C9A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20D23DBD2B42E09A00E4C9A1 /* Main.storyboard */; };
 		20D23DC12B42E09D00E4C9A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20D23DC02B42E09D00E4C9A1 /* Assets.xcassets */; };
 		20D23DC42B42E09D00E4C9A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20D23DC22B42E09D00E4C9A1 /* LaunchScreen.storyboard */; };
+		20D23DEC2B42E49E00E4C9A1 /* NetworkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D23DE52B42E25B00E4C9A1 /* NetworkKit.framework */; };
+		20D23DED2B42E49E00E4C9A1 /* NetworkKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 20D23DE52B42E25B00E4C9A1 /* NetworkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4F4026BBE11F97A1A250B766 /* Pods_ECommerceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF9C358A9AB3B57C85CB60FE /* Pods_ECommerceApp.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		20D23DEE2B42E49E00E4C9A1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				20D23DED2B42E49E00E4C9A1 /* NetworkKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		20D23DB42B42E09A00E4C9A1 /* ECommerceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ECommerceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -25,6 +41,7 @@
 		20D23DC02B42E09D00E4C9A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20D23DC32B42E09D00E4C9A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		20D23DC52B42E09D00E4C9A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20D23DE52B42E25B00E4C9A1 /* NetworkKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ADC65BAE987487F7E8B9C92 /* Pods-ECommerceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ECommerceApp.debug.xcconfig"; path = "Target Support Files/Pods-ECommerceApp/Pods-ECommerceApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C8DC51DD826FA0FB36F9A255 /* Pods-ECommerceApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ECommerceApp.release.xcconfig"; path = "Target Support Files/Pods-ECommerceApp/Pods-ECommerceApp.release.xcconfig"; sourceTree = "<group>"; };
 		DF9C358A9AB3B57C85CB60FE /* Pods_ECommerceApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ECommerceApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20D23DEC2B42E49E00E4C9A1 /* NetworkKit.framework in Frameworks */,
 				4F4026BBE11F97A1A250B766 /* Pods_ECommerceApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,6 +95,7 @@
 		3FCC05AA33B90EF4DE51821A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				20D23DE52B42E25B00E4C9A1 /* NetworkKit.framework */,
 				DF9C358A9AB3B57C85CB60FE /* Pods_ECommerceApp.framework */,
 			);
 			name = Frameworks;
@@ -88,7 +107,6 @@
 				8ADC65BAE987487F7E8B9C92 /* Pods-ECommerceApp.debug.xcconfig */,
 				C8DC51DD826FA0FB36F9A255 /* Pods-ECommerceApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -104,6 +122,7 @@
 				20D23DB12B42E09A00E4C9A1 /* Frameworks */,
 				20D23DB22B42E09A00E4C9A1 /* Resources */,
 				2F3DECBB457170B800FE53FD /* [CP] Embed Pods Frameworks */,
+				20D23DEE2B42E49E00E4C9A1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -272,7 +291,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -335,7 +354,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

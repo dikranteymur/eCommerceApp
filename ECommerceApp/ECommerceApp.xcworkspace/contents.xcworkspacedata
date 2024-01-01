@@ -5,6 +5,9 @@
       location = "group:ECommerceApp.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../NetworkKit/NetworkKit.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
