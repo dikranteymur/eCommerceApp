@@ -10,8 +10,6 @@
 		20D23DB82B42E09A00E4C9A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D23DB72B42E09A00E4C9A1 /* AppDelegate.swift */; };
 		20D23DC12B42E09D00E4C9A1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20D23DC02B42E09D00E4C9A1 /* Images.xcassets */; };
 		20D23DC42B42E09D00E4C9A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20D23DC22B42E09D00E4C9A1 /* LaunchScreen.storyboard */; };
-		20D23DEC2B42E49E00E4C9A1 /* NetworkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D23DE52B42E25B00E4C9A1 /* NetworkKit.framework */; };
-		20D23DED2B42E49E00E4C9A1 /* NetworkKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 20D23DE52B42E25B00E4C9A1 /* NetworkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		20D23E602B42F09800E4C9A1 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D23E5F2B42F09800E4C9A1 /* AppRouter.swift */; };
 		20D23E622B42F0A100E4C9A1 /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D23E612B42F0A100E4C9A1 /* AppContainer.swift */; };
 		20D23E682B42F16300E4C9A1 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D23E672B42F16300E4C9A1 /* BaseViewModel.swift */; };
@@ -20,11 +18,13 @@
 		20D23E722B42FAE600E4C9A1 /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20D23E6F2B42FAE600E4C9A1 /* Raleway-Regular.ttf */; };
 		20D23E732B42FAE600E4C9A1 /* Raleway-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20D23E702B42FAE600E4C9A1 /* Raleway-SemiBold.ttf */; };
 		20D23E742B42FAE600E4C9A1 /* Raleway-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20D23E712B42FAE600E4C9A1 /* Raleway-Thin.ttf */; };
-		20D23E912B43007A00E4C9A1 /* DesignKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D23E8F2B43006A00E4C9A1 /* DesignKit.framework */; };
-		20D23E922B43007A00E4C9A1 /* DesignKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 20D23E8F2B43006A00E4C9A1 /* DesignKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		20D23EA92B4300CF00E4C9A1 /* UtilitiesKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D23EA72B4300C700E4C9A1 /* UtilitiesKit.framework */; };
-		20D23EAA2B4300CF00E4C9A1 /* UtilitiesKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 20D23EA72B4300C700E4C9A1 /* UtilitiesKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4F4026BBE11F97A1A250B766 /* Pods_ECommerceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF9C358A9AB3B57C85CB60FE /* Pods_ECommerceApp.framework */; };
+		20D23F3F2B432C4700E4C9A1 /* UtilityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D23F3A2B432B7100E4C9A1 /* UtilityKit.framework */; };
+		20D23F402B432C4700E4C9A1 /* UtilityKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 20D23F3A2B432B7100E4C9A1 /* UtilityKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		20D23F412B432C4900E4C9A1 /* NetworkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D23F362B432B7100E4C9A1 /* NetworkKit.framework */; };
+		20D23F422B432C4900E4C9A1 /* NetworkKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 20D23F362B432B7100E4C9A1 /* NetworkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		20D23F442B432C4B00E4C9A1 /* DesignKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 20D23F342B432B7100E4C9A1 /* DesignKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		20D23F5A2B432CB900E4C9A1 /* DesignKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D23F592B432CB900E4C9A1 /* DesignKit.framework */; };
+		B8254D28828BEA82FA231C78 /* Pods_ECommerceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3983F6484EF91F957AB15970 /* Pods_ECommerceApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,9 +34,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				20D23EAA2B4300CF00E4C9A1 /* UtilitiesKit.framework in Embed Frameworks */,
-				20D23DED2B42E49E00E4C9A1 /* NetworkKit.framework in Embed Frameworks */,
-				20D23E922B43007A00E4C9A1 /* DesignKit.framework in Embed Frameworks */,
+				20D23F442B432C4B00E4C9A1 /* DesignKit.framework in Embed Frameworks */,
+				20D23F422B432C4900E4C9A1 /* NetworkKit.framework in Embed Frameworks */,
+				20D23F402B432C4700E4C9A1 /* UtilityKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,7 +49,6 @@
 		20D23DC02B42E09D00E4C9A1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		20D23DC32B42E09D00E4C9A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		20D23DC52B42E09D00E4C9A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		20D23DE52B42E25B00E4C9A1 /* NetworkKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20D23E5F2B42F09800E4C9A1 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		20D23E612B42F0A100E4C9A1 /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
 		20D23E672B42F16300E4C9A1 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -58,11 +57,16 @@
 		20D23E6F2B42FAE600E4C9A1 /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.ttf"; sourceTree = "<group>"; };
 		20D23E702B42FAE600E4C9A1 /* Raleway-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-SemiBold.ttf"; sourceTree = "<group>"; };
 		20D23E712B42FAE600E4C9A1 /* Raleway-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Thin.ttf"; sourceTree = "<group>"; };
-		20D23E8F2B43006A00E4C9A1 /* DesignKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DesignKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		20D23EA72B4300C700E4C9A1 /* UtilitiesKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UtilitiesKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8ADC65BAE987487F7E8B9C92 /* Pods-ECommerceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ECommerceApp.debug.xcconfig"; path = "Target Support Files/Pods-ECommerceApp/Pods-ECommerceApp.debug.xcconfig"; sourceTree = "<group>"; };
-		C8DC51DD826FA0FB36F9A255 /* Pods-ECommerceApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ECommerceApp.release.xcconfig"; path = "Target Support Files/Pods-ECommerceApp/Pods-ECommerceApp.release.xcconfig"; sourceTree = "<group>"; };
-		DF9C358A9AB3B57C85CB60FE /* Pods_ECommerceApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ECommerceApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		20D23F292B4327E400E4C9A1 /* DesignKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DesignKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		20D23F2B2B4327E400E4C9A1 /* NetworkKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		20D23F2D2B4327E400E4C9A1 /* UtilityKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UtilityKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		20D23F342B432B7100E4C9A1 /* DesignKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DesignKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		20D23F362B432B7100E4C9A1 /* NetworkKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		20D23F3A2B432B7100E4C9A1 /* UtilityKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UtilityKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		20D23F592B432CB900E4C9A1 /* DesignKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DesignKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3983F6484EF91F957AB15970 /* Pods_ECommerceApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ECommerceApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEC52FBE93E9A3599F290863 /* Pods-ECommerceApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ECommerceApp.release.xcconfig"; path = "Target Support Files/Pods-ECommerceApp/Pods-ECommerceApp.release.xcconfig"; sourceTree = "<group>"; };
+		D875045320FAEC2E311F7C8C /* Pods-ECommerceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ECommerceApp.debug.xcconfig"; path = "Target Support Files/Pods-ECommerceApp/Pods-ECommerceApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,10 +74,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20D23E912B43007A00E4C9A1 /* DesignKit.framework in Frameworks */,
-				20D23DEC2B42E49E00E4C9A1 /* NetworkKit.framework in Frameworks */,
-				20D23EA92B4300CF00E4C9A1 /* UtilitiesKit.framework in Frameworks */,
-				4F4026BBE11F97A1A250B766 /* Pods_ECommerceApp.framework in Frameworks */,
+				20D23F5A2B432CB900E4C9A1 /* DesignKit.framework in Frameworks */,
+				20D23F3F2B432C4700E4C9A1 /* UtilityKit.framework in Frameworks */,
+				20D23F412B432C4900E4C9A1 /* NetworkKit.framework in Frameworks */,
+				B8254D28828BEA82FA231C78 /* Pods_ECommerceApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,10 +180,14 @@
 		3FCC05AA33B90EF4DE51821A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				20D23EA72B4300C700E4C9A1 /* UtilitiesKit.framework */,
-				20D23E8F2B43006A00E4C9A1 /* DesignKit.framework */,
-				20D23DE52B42E25B00E4C9A1 /* NetworkKit.framework */,
-				DF9C358A9AB3B57C85CB60FE /* Pods_ECommerceApp.framework */,
+				20D23F592B432CB900E4C9A1 /* DesignKit.framework */,
+				20D23F342B432B7100E4C9A1 /* DesignKit.framework */,
+				20D23F362B432B7100E4C9A1 /* NetworkKit.framework */,
+				20D23F3A2B432B7100E4C9A1 /* UtilityKit.framework */,
+				20D23F292B4327E400E4C9A1 /* DesignKit.framework */,
+				20D23F2B2B4327E400E4C9A1 /* NetworkKit.framework */,
+				20D23F2D2B4327E400E4C9A1 /* UtilityKit.framework */,
+				3983F6484EF91F957AB15970 /* Pods_ECommerceApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -187,8 +195,8 @@
 		F8DF9A4FA648FB9342831AE6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8ADC65BAE987487F7E8B9C92 /* Pods-ECommerceApp.debug.xcconfig */,
-				C8DC51DD826FA0FB36F9A255 /* Pods-ECommerceApp.release.xcconfig */,
+				D875045320FAEC2E311F7C8C /* Pods-ECommerceApp.debug.xcconfig */,
+				CEC52FBE93E9A3599F290863 /* Pods-ECommerceApp.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -200,12 +208,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 20D23DC82B42E09D00E4C9A1 /* Build configuration list for PBXNativeTarget "ECommerceApp" */;
 			buildPhases = (
-				48E249545DF224D3C46C142D /* [CP] Check Pods Manifest.lock */,
+				2F5D5DF4829742529E18DA99 /* [CP] Check Pods Manifest.lock */,
 				20D23DB02B42E09A00E4C9A1 /* Sources */,
 				20D23DB12B42E09A00E4C9A1 /* Frameworks */,
 				20D23DB22B42E09A00E4C9A1 /* Resources */,
-				2F3DECBB457170B800FE53FD /* [CP] Embed Pods Frameworks */,
 				20D23DEE2B42E49E00E4C9A1 /* Embed Frameworks */,
+				B9B7480A824E63190D0BCC37 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -266,24 +274,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2F3DECBB457170B800FE53FD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ECommerceApp/Pods-ECommerceApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ECommerceApp/Pods-ECommerceApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ECommerceApp/Pods-ECommerceApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		48E249545DF224D3C46C142D /* [CP] Check Pods Manifest.lock */ = {
+		2F5D5DF4829742529E18DA99 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -303,6 +294,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9B7480A824E63190D0BCC37 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ECommerceApp/Pods-ECommerceApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ECommerceApp/Pods-ECommerceApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ECommerceApp/Pods-ECommerceApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -455,7 +463,7 @@
 		};
 		20D23DC92B42E09D00E4C9A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8ADC65BAE987487F7E8B9C92 /* Pods-ECommerceApp.debug.xcconfig */;
+			baseConfigurationReference = D875045320FAEC2E311F7C8C /* Pods-ECommerceApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -483,7 +491,7 @@
 		};
 		20D23DCA2B42E09D00E4C9A1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C8DC51DD826FA0FB36F9A255 /* Pods-ECommerceApp.release.xcconfig */;
+			baseConfigurationReference = CEC52FBE93E9A3599F290863 /* Pods-ECommerceApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

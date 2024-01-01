@@ -2,16 +2,16 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../../../../Desktop/DenemeApp/UtilitiesKit/UtilitiesKit.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../../Desktop/DenemeApp/DesignKit/DesignKit.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:ECommerceApp.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../NetworkKit/NetworkKit.xcodeproj">
+      location = "group:DesignKit/DesignKit.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:UtilityKit/UtilityKit.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:NetworkKit/NetworkKit.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

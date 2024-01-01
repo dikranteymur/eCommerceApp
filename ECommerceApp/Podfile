@@ -1,6 +1,7 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
+workspace 'ECommerceApp'
 target 'ECommerceApp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
@@ -8,4 +9,24 @@ target 'ECommerceApp' do
   # Pods for ECommerceApp
   pod 'TinyConstraints'
 
+end
+
+target 'UtilityKit' do
+
+  project 'UtilityKit/UtilityKit.xcodeproj'
+  
+end
+
+target 'DesignKit' do
+  
+  project 'DesignKit/DesignKit.xcodeproj'
+  
+  pod 'TinyConstraints'
+  
+end
+
+target 'NetworkKit' do
+  
+  project 'NetworkKit/NetworkKit.xcodeproj'
+  
 end
