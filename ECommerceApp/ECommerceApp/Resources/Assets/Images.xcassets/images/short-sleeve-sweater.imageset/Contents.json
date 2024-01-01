@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "short-sleeve-sweater.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
