@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct ProductModel: Decodable {
+public struct ProductModel: Codable {
     public let id: Int?
     public let price: Double?
     public let name: String?
@@ -16,6 +16,7 @@ public struct ProductModel: Decodable {
     public let imageName: String?
     public let color: String?
     public var isLike: Bool?
+    public var count: Int?
     
     private enum CodingKeys: String, CodingKey {
         case id
@@ -25,6 +26,5 @@ public struct ProductModel: Decodable {
         case currency
         case imageName = "image_name"
         case color
-        case isLike
     }
 }
