@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		20D23F232B43270500E4C9A1 /* UtilityKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 20D23F222B43270500E4C9A1 /* UtilityKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		20D23F5E2B432F3F00E4C9A1 /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D23F5D2B432F3F00E4C9A1 /* Closures.swift */; };
+		20D23F862B43537200E4C9A1 /* Extension+NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D23F852B43537200E4C9A1 /* Extension+NotificationName.swift */; };
+		20D23F882B4355FD00E4C9A1 /* Extension+NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D23F872B4355FD00E4C9A1 /* Extension+NotificationCenter.swift */; };
 		626599E0CAD6B9A6D6AFE2E1 /* libPods-UtilityKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC6DF1EEE745B65DF14EF806 /* libPods-UtilityKit.a */; };
 /* End PBXBuildFile section */
 
@@ -16,6 +18,8 @@
 		20D23F1F2B43270500E4C9A1 /* UtilityKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UtilityKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20D23F222B43270500E4C9A1 /* UtilityKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UtilityKit.h; sourceTree = "<group>"; };
 		20D23F5D2B432F3F00E4C9A1 /* Closures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
+		20D23F852B43537200E4C9A1 /* Extension+NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+NotificationName.swift"; sourceTree = "<group>"; };
+		20D23F872B4355FD00E4C9A1 /* Extension+NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+NotificationCenter.swift"; sourceTree = "<group>"; };
 		328B612D2A273F8057266B81 /* Pods-UtilityKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UtilityKit.release.xcconfig"; path = "Target Support Files/Pods-UtilityKit/Pods-UtilityKit.release.xcconfig"; sourceTree = "<group>"; };
 		A3D512B9D96403A439189B40 /* Pods-UtilityKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UtilityKit.debug.xcconfig"; path = "Target Support Files/Pods-UtilityKit/Pods-UtilityKit.debug.xcconfig"; sourceTree = "<group>"; };
 		CC6DF1EEE745B65DF14EF806 /* libPods-UtilityKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UtilityKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +48,7 @@
 		20D23F152B43270500E4C9A1 = {
 			isa = PBXGroup;
 			children = (
+				20D23F842B43535A00E4C9A1 /* Extensions */,
 				20D23F5C2B432F3500E4C9A1 /* Closure */,
 				20D23F212B43270500E4C9A1 /* UtilityKit */,
 				20D23F202B43270500E4C9A1 /* Products */,
@@ -74,6 +79,15 @@
 				20D23F5D2B432F3F00E4C9A1 /* Closures.swift */,
 			);
 			path = Closure;
+			sourceTree = "<group>";
+		};
+		20D23F842B43535A00E4C9A1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				20D23F852B43537200E4C9A1 /* Extension+NotificationName.swift */,
+				20D23F872B4355FD00E4C9A1 /* Extension+NotificationCenter.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E78B7DC015CA8036FE68B629 /* Pods */ = {
@@ -192,6 +206,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20D23F882B4355FD00E4C9A1 /* Extension+NotificationCenter.swift in Sources */,
+				20D23F862B43537200E4C9A1 /* Extension+NotificationName.swift in Sources */,
 				20D23F5E2B432F3F00E4C9A1 /* Closures.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
