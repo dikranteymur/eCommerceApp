@@ -17,6 +17,7 @@ protocol ProductListViewModelEvents: AnyObject {
 protocol ProductListViewModelDataSource: AnyObject {
     var numberOfItemsInSection: Int { get }
     func cellForItemAt(indexPath: IndexPath) -> ProductListCellModelProtocol?
+    func productItemModelAt(indexPath: IndexPath) -> ProductModel?
     func didLoad()
 }
 
@@ -26,6 +27,7 @@ final class ProductListViewModel: BaseViewModel, ProductListViewModelProtocol {
     
     // Privates
     private var productItemList: [ProductListCellModelProtocol] = []
+    private var productModels: [ProductModel] = []
     
     // Events
     var reloadData: BoolClosure?
@@ -39,6 +41,10 @@ final class ProductListViewModel: BaseViewModel, ProductListViewModelProtocol {
     
     func cellForItemAt(indexPath: IndexPath) -> ProductListCellModelProtocol? {
         return productItemList[indexPath.row]
+    }
+    
+    func productItemModelAt(indexPath: IndexPath) -> ProductModel? {
+        return productModels[indexPath.row]
     }
 
     private func fetchProductList() {
@@ -60,6 +66,6 @@ extension ProductListViewModel {
     
     private func configureCellItems(result: [ProductModel]) {
         productItemList.append(contentsOf: result.map({ ProductListCellModel(model: $0) }))
-//        reloadData?(productItemList.isEmpty)
+        productModels = result
     }
 }

@@ -55,7 +55,11 @@ extension ProductListViewController {
 extension ProductListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO: - ProductDetail sayfasina gidecek
+        guard let viewModel = viewModel.productItemModelAt(indexPath: indexPath) else { return }
+        let productDetailViewController = ProductDetailBuilder.make(model: viewModel)
+        productDetailViewController.modalPresentationStyle = .pageSheet
+        productDetailViewController.modalTransitionStyle = .flipHorizontal
+        navigationController?.present(productDetailViewController, animated: true)
     }
 }
 
