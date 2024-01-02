@@ -24,6 +24,11 @@
 		20D23F422B432C4900E4C9A1 /* NetworkKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 20D23F362B432B7100E4C9A1 /* NetworkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		20D23F442B432C4B00E4C9A1 /* DesignKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 20D23F342B432B7100E4C9A1 /* DesignKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		20D23F5A2B432CB900E4C9A1 /* DesignKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D23F592B432CB900E4C9A1 /* DesignKit.framework */; };
+		20D23F762B4331F300E4C9A1 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D23F752B4331F300E4C9A1 /* ProductListViewController.swift */; };
+		20D23F782B4331FC00E4C9A1 /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D23F772B4331FC00E4C9A1 /* ProductListViewModel.swift */; };
+		20D23F8A2B43605A00E4C9A1 /* ProductListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D23F892B43605A00E4C9A1 /* ProductListBuilder.swift */; };
+		20D23F8D2B436FE200E4C9A1 /* Extension+ProductListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D23F8C2B436FE200E4C9A1 /* Extension+ProductListCell.swift */; };
+		20D23F8F2B437A9E00E4C9A1 /* Products.json in Resources */ = {isa = PBXBuildFile; fileRef = 20D23F8E2B437A9E00E4C9A1 /* Products.json */; };
 		B8254D28828BEA82FA231C78 /* Pods_ECommerceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3983F6484EF91F957AB15970 /* Pods_ECommerceApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +69,11 @@
 		20D23F362B432B7100E4C9A1 /* NetworkKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20D23F3A2B432B7100E4C9A1 /* UtilityKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UtilityKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20D23F592B432CB900E4C9A1 /* DesignKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DesignKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		20D23F752B4331F300E4C9A1 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		20D23F772B4331FC00E4C9A1 /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
+		20D23F892B43605A00E4C9A1 /* ProductListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListBuilder.swift; sourceTree = "<group>"; };
+		20D23F8C2B436FE200E4C9A1 /* Extension+ProductListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ProductListCell.swift"; sourceTree = "<group>"; };
+		20D23F8E2B437A9E00E4C9A1 /* Products.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Products.json; path = NetworkKit/Products.json; sourceTree = "<group>"; };
 		3983F6484EF91F957AB15970 /* Pods_ECommerceApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ECommerceApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC52FBE93E9A3599F290863 /* Pods-ECommerceApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ECommerceApp.release.xcconfig"; path = "Target Support Files/Pods-ECommerceApp/Pods-ECommerceApp.release.xcconfig"; sourceTree = "<group>"; };
 		D875045320FAEC2E311F7C8C /* Pods-ECommerceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ECommerceApp.debug.xcconfig"; path = "Target Support Files/Pods-ECommerceApp/Pods-ECommerceApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -87,6 +97,7 @@
 		20D23DAB2B42E09A00E4C9A1 = {
 			isa = PBXGroup;
 			children = (
+				20D23F8E2B437A9E00E4C9A1 /* Products.json */,
 				20D23DB62B42E09A00E4C9A1 /* ECommerceApp */,
 				20D23DB52B42E09A00E4C9A1 /* Products */,
 				F8DF9A4FA648FB9342831AE6 /* Pods */,
@@ -105,6 +116,8 @@
 		20D23DB62B42E09A00E4C9A1 /* ECommerceApp */ = {
 			isa = PBXGroup;
 			children = (
+				20D23F8B2B436F6200E4C9A1 /* Extension */,
+				20D23F732B4331E300E4C9A1 /* Scene */,
 				20D23E5E2B42F08A00E4C9A1 /* App */,
 				20D23E662B42F15400E4C9A1 /* Base */,
 				20D23E652B42F0F700E4C9A1 /* SupportingFiles */,
@@ -167,6 +180,32 @@
 				20D23E6D2B42F8AE00E4C9A1 /* Colors.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		20D23F732B4331E300E4C9A1 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				20D23F742B4331E700E4C9A1 /* ProductList */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		20D23F742B4331E700E4C9A1 /* ProductList */ = {
+			isa = PBXGroup;
+			children = (
+				20D23F892B43605A00E4C9A1 /* ProductListBuilder.swift */,
+				20D23F752B4331F300E4C9A1 /* ProductListViewController.swift */,
+				20D23F772B4331FC00E4C9A1 /* ProductListViewModel.swift */,
+			);
+			path = ProductList;
+			sourceTree = "<group>";
+		};
+		20D23F8B2B436F6200E4C9A1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				20D23F8C2B436FE200E4C9A1 /* Extension+ProductListCell.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		3FCC05AA33B90EF4DE51821A /* Frameworks */ = {
@@ -254,6 +293,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20D23F8F2B437A9E00E4C9A1 /* Products.json in Resources */,
 				20D23E6E2B42F8AE00E4C9A1 /* Colors.xcassets in Resources */,
 				20D23DC42B42E09D00E4C9A1 /* LaunchScreen.storyboard in Resources */,
 				20D23DC12B42E09D00E4C9A1 /* Images.xcassets in Resources */,
@@ -315,8 +355,12 @@
 				20D23E6A2B42F16B00E4C9A1 /* BaseViewController.swift in Sources */,
 				20D23E602B42F09800E4C9A1 /* AppRouter.swift in Sources */,
 				20D23E682B42F16300E4C9A1 /* BaseViewModel.swift in Sources */,
+				20D23F782B4331FC00E4C9A1 /* ProductListViewModel.swift in Sources */,
 				20D23E622B42F0A100E4C9A1 /* AppContainer.swift in Sources */,
+				20D23F762B4331F300E4C9A1 /* ProductListViewController.swift in Sources */,
 				20D23DB82B42E09A00E4C9A1 /* AppDelegate.swift in Sources */,
+				20D23F8D2B436FE200E4C9A1 /* Extension+ProductListCell.swift in Sources */,
+				20D23F8A2B43605A00E4C9A1 /* ProductListBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
