@@ -8,17 +8,14 @@
 import Foundation
 
 public struct ProductModel: Decodable {
-    var items: [ProductItemModel]?
-}
-
-public struct ProductItemModel: Decodable {
-    var id: Int?
-    var price: Double?
-    var name: String?
-    var category: String?
-    var currency: String?
-    var imageName: String?
-    var color: String?
+    public let id: Int?
+    public let price: Double?
+    public let name: String?
+    public let category: String?
+    public let currency: String?
+    public let imageName: String?
+    public let color: String?
+    public var isLike: Bool?
     
     private enum CodingKeys: String, CodingKey {
         case id
@@ -28,5 +25,6 @@ public struct ProductItemModel: Decodable {
         case currency
         case imageName = "image_name"
         case color
+        case isLike
     }
 }
