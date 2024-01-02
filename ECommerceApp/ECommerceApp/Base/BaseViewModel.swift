@@ -14,7 +14,7 @@ protocol BaseViewModelProtocol {
 
 class BaseViewModel: BaseViewModelProtocol {
     
-    private let network: NetworkKitProtocol
+    var network: NetworkKitProtocol
     
     init(network: NetworkKitProtocol = app.network) {
         self.network = network
