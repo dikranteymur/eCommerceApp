@@ -52,7 +52,12 @@ final class ProductListViewModel: BaseViewModel, ProductListViewModelProtocol {
             guard let self = self else { return }
             switch result {
             case .success(let result):
-                self.configureCellItems(result: result)
+                if ProductCacheHelper.isSavedProductList() {
+                    self.configureCellItems(result: ProductCacheHelper.getAllProductModels())
+                } else {
+                    ProductCacheHelper.saveAllProductModels(value: result)
+                    self.configureCellItems(result: result)
+                }
             case .failure(let error):
                 print(error)
             }
