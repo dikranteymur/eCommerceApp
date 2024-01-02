@@ -18,9 +18,7 @@ public class NetworkKit: NetworkKitProtocol {
     public func fetchProductItems<T: Decodable>(model: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
         if let url = Bundle.main.url(forResource: "Products", withExtension: "json") {
             do {
-                print(model)
                 let data = try Data(contentsOf: url)
-                print(T.self)
                 let response = try JSONDecoder().decode(T.self, from: data)
                 completion(.success(response))
             } catch {
