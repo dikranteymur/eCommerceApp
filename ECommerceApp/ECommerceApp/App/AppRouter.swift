@@ -12,6 +12,7 @@ final class AppRouter {
     
     init() {
         window = UIWindow(frame: UIScreen.main.bounds)
+        window.overrideUserInterfaceStyle = .light
     }
     
     func startWith(viewController: UIViewController) {
