@@ -1,5 +1,5 @@
 //
-//  ProductListCollectionCellModel.swift
+//  ProductListCellModel.swift
 //  DesignKit
 //
 //  Created by Dikran Teymur on 1.01.2024.
@@ -8,20 +8,20 @@
 import Foundation
 import UtilityKit
 
-public protocol ProductListCollectionCellModelEvents: AnyObject {
+public protocol ProductListCellModelEvents: AnyObject {
     var addBagAction: VoidClosure? { get }
 }
 
-public protocol ProductListCollectionCellModelDataSource: AnyObject {
+public protocol ProductListCellModelDataSource: AnyObject {
     var imageString: String? { get }
     var name: String? { get }
     var price: String? { get }
-    var isLike: Bool? { get }
+    var isLike: Bool? { get set }
 }
 
-public protocol ProductListCollectionCellModelProtocol: ProductListCollectionCellModelEvents, ProductListCollectionCellModelDataSource { }
+public protocol ProductListCellModelProtocol: ProductListCellModelEvents, ProductListCellModelDataSource { }
 
-public final class ProductListCollectionCellModel: ProductListCollectionCellModelProtocol {
+public final class ProductListCellModel: ProductListCellModelProtocol {
     
     public var addBagAction: VoidClosure?
     
@@ -30,11 +30,10 @@ public final class ProductListCollectionCellModel: ProductListCollectionCellMode
     public var price: String?
     public var isLike: Bool?
     
-    init(imageString: String? = nil, name: String? = nil, price: String? = nil, isLike: Bool? = nil) {
+    public init(imageString: String? = nil, name: String? = nil, price: String? = nil, isLike: Bool? = nil) {
         self.imageString = imageString
         self.name = name
         self.price = price
         self.isLike = isLike
     }
 }
-
