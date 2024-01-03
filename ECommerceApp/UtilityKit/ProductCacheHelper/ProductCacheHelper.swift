@@ -82,12 +82,7 @@ public struct ProductCacheHelper {
         }
         saveCart(value: tempCartItems)
     }
-    
-    // TODO: - Deneme amaclidir. Silinecek
-    public static func removeProduct() {
-        UserDefaults.standard.removeObject(forKey: CacheKeys.forProductCache.rawValue)
-    }
-    
+
     public static func removeProductIsSaved() {
         UserDefaults.standard.removeObject(forKey: CacheKeys.forProductCacheIsSaved.rawValue)
     }

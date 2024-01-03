@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import DesignKit
+import UtilityKit
 
 class BaseViewController<T: BaseViewModelProtocol>: UIViewController {
     
@@ -27,6 +29,20 @@ class BaseViewController<T: BaseViewModelProtocol>: UIViewController {
     
     func setBackgroundColor() -> UIColor {
         return .white
+    }
+    
+    func showAlert(header: String?,
+                   message: String?,
+                   type: CustomAlertType = .oneButton,
+                   cancelButtonAction: VoidClosure? = nil,
+                   doneButtonAction: VoidClosure? = nil) {
+        let alert = CustomAlertView()
+        alert.set(viewModel: CustomAlertViewModel(header: header, message: message, type: type))
+        alert.cancelButtonAction = cancelButtonAction
+        alert.doneButtonAction = doneButtonAction
+        view.addSubview(alert)
+        alert.centerInSuperview()
+        alert.horizontalToSuperview(insets: .horizontal(40))
     }
     
     #if DEBUG

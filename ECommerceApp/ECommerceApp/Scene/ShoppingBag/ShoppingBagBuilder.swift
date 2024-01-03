@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import NetworkKit
 
 final class ShoppingBagBuilder {
     
-    static func make() -> ShoppingBagViewController {
-        let viewModel = ShoppingBagViewModel()
+    static func make(cartInfoModel: CartInfoModel?) -> ShoppingBagViewController {
+        let viewModel = ShoppingBagViewModel(cartInfoModel: cartInfoModel)
         return ShoppingBagViewController(viewModel: viewModel)
     }
 }

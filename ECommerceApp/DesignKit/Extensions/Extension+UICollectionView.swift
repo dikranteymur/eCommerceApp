@@ -26,7 +26,7 @@ public extension UICollectionView {
                             buttontitle: String?,
                             buttonBackgroundColor: UIColor = .tintColor,
                             buttonTintColor: UIColor = .colorGray,
-                            action: VoidClosure? ) {
+                            action: VoidClosure?) {
         let emptyView = EmptyView()
         emptyView.addImage = UIImage(systemName: "photo.fill.on.rectangle.fill")
         emptyView.headerText = header

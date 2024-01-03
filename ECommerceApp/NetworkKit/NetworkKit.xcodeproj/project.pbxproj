@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20C4960B2B45D14000B4698E /* CartInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C4960A2B45D14000B4698E /* CartInfoModel.swift */; };
 		20D23DD92B42E24500E4C9A1 /* NetworkKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 20D23DD82B42E24500E4C9A1 /* NetworkKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		20D23E512B42EBD900E4C9A1 /* NetworkKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D23E502B42EBD900E4C9A1 /* NetworkKit.swift */; };
 		20D23E582B42ECC600E4C9A1 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D23E572B42ECC600E4C9A1 /* ProductModel.swift */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20C4960A2B45D14000B4698E /* CartInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartInfoModel.swift; sourceTree = "<group>"; };
 		20D23DD52B42E24500E4C9A1 /* NetworkKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20D23DD82B42E24500E4C9A1 /* NetworkKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkKit.h; sourceTree = "<group>"; };
 		20D23E502B42EBD900E4C9A1 /* NetworkKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkKit.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				20D23E572B42ECC600E4C9A1 /* ProductModel.swift */,
+				20C4960A2B45D14000B4698E /* CartInfoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			files = (
 				20D23E512B42EBD900E4C9A1 /* NetworkKit.swift in Sources */,
 				20D23E582B42ECC600E4C9A1 /* ProductModel.swift in Sources */,
+				20C4960B2B45D14000B4698E /* CartInfoModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

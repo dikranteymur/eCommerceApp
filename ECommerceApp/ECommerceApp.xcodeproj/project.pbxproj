@@ -14,6 +14,9 @@
 		208340752B44AA15001A624D /* ShoppingBagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208340742B44AA15001A624D /* ShoppingBagViewModel.swift */; };
 		208340772B44AA1E001A624D /* ShoppingBagBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208340762B44AA1E001A624D /* ShoppingBagBuilder.swift */; };
 		208340852B44D238001A624D /* Extension+ShoppingBagCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208340842B44D238001A624D /* Extension+ShoppingBagCellModel.swift */; };
+		20C496052B45A65F00B4698E /* OrderConfirmationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C496042B45A65F00B4698E /* OrderConfirmationBuilder.swift */; };
+		20C496072B45A66700B4698E /* OrderConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C496062B45A66700B4698E /* OrderConfirmationViewController.swift */; };
+		20C496092B45A66F00B4698E /* OrderConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C496082B45A66F00B4698E /* OrderConfirmationViewModel.swift */; };
 		20D23DB82B42E09A00E4C9A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D23DB72B42E09A00E4C9A1 /* AppDelegate.swift */; };
 		20D23DC12B42E09D00E4C9A1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20D23DC02B42E09D00E4C9A1 /* Images.xcassets */; };
 		20D23DC42B42E09D00E4C9A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20D23DC22B42E09D00E4C9A1 /* LaunchScreen.storyboard */; };
@@ -63,6 +66,9 @@
 		208340742B44AA15001A624D /* ShoppingBagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingBagViewModel.swift; sourceTree = "<group>"; };
 		208340762B44AA1E001A624D /* ShoppingBagBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingBagBuilder.swift; sourceTree = "<group>"; };
 		208340842B44D238001A624D /* Extension+ShoppingBagCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ShoppingBagCellModel.swift"; sourceTree = "<group>"; };
+		20C496042B45A65F00B4698E /* OrderConfirmationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationBuilder.swift; sourceTree = "<group>"; };
+		20C496062B45A66700B4698E /* OrderConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationViewController.swift; sourceTree = "<group>"; };
+		20C496082B45A66F00B4698E /* OrderConfirmationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationViewModel.swift; sourceTree = "<group>"; };
 		20D23DB42B42E09A00E4C9A1 /* ECommerceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ECommerceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20D23DB72B42E09A00E4C9A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20D23DC02B42E09D00E4C9A1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -126,6 +132,16 @@
 				208340742B44AA15001A624D /* ShoppingBagViewModel.swift */,
 			);
 			path = ShoppingBag;
+			sourceTree = "<group>";
+		};
+		20C496032B45A64B00B4698E /* OrderConfirmation */ = {
+			isa = PBXGroup;
+			children = (
+				20C496042B45A65F00B4698E /* OrderConfirmationBuilder.swift */,
+				20C496062B45A66700B4698E /* OrderConfirmationViewController.swift */,
+				20C496082B45A66F00B4698E /* OrderConfirmationViewModel.swift */,
+			);
+			path = OrderConfirmation;
 			sourceTree = "<group>";
 		};
 		20D23DAB2B42E09A00E4C9A1 = {
@@ -219,6 +235,7 @@
 		20D23F732B4331E300E4C9A1 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				20C496032B45A64B00B4698E /* OrderConfirmation */,
 				208340712B44A9FA001A624D /* ShoppingBag */,
 				208340532B441E42001A624D /* ProductDetail */,
 				20D23F742B4331E700E4C9A1 /* ProductList */,
@@ -400,11 +417,14 @@
 				208340752B44AA15001A624D /* ShoppingBagViewModel.swift in Sources */,
 				208340732B44AA0D001A624D /* ShoppingBagViewController.swift in Sources */,
 				208340852B44D238001A624D /* Extension+ShoppingBagCellModel.swift in Sources */,
+				20C496092B45A66F00B4698E /* OrderConfirmationViewModel.swift in Sources */,
 				20D23F762B4331F300E4C9A1 /* ProductListViewController.swift in Sources */,
 				20D23DB82B42E09A00E4C9A1 /* AppDelegate.swift in Sources */,
 				208340552B441E4F001A624D /* ProductDetailViewController.swift in Sources */,
+				20C496072B45A66700B4698E /* OrderConfirmationViewController.swift in Sources */,
 				20D23F8D2B436FE200E4C9A1 /* Extension+ProductListCellModel.swift in Sources */,
 				20D23F8A2B43605A00E4C9A1 /* ProductListBuilder.swift in Sources */,
+				20C496052B45A65F00B4698E /* OrderConfirmationBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

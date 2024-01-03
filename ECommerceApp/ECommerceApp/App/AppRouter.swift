@@ -7,6 +7,7 @@
 
 import UIKit
 import UtilityKit
+import NetworkKit
 
 final class AppRouter {
     let window: UIWindow
@@ -28,11 +29,20 @@ final class AppRouter {
         let navigationController = UINavigationController(rootViewController: viewController)
         let scenes = UIApplication.shared.connectedScenes
         let windowScene = scenes.first as? UIWindowScene
-        guard let window = windowScene?.keyWindow, let rootViewController = window.rootViewController else { return }
+        guard let window = windowScene?.keyWindow,
+              let rootViewController = window.rootViewController else { return }
         navigationController.view.frame = rootViewController.view.frame
         navigationController.view.layoutIfNeeded()
         UIView.transition(with: window, duration: 1.0, options: .transitionCrossDissolve, animations: {
             self.window.rootViewController = navigationController
         })
+    }
+    
+    func navigateToOrderConfirmation(from: UIViewController, cartInfoModel: CartInfoModel?, animated: Bool = true) {
+        from.navigationController?.pushViewController(OrderConfirmationBuilder.make(cartInfoModel: cartInfoModel), animated: animated)
+    }
+    
+    func navigaToShoppingBagViewController(from: UIViewController, cartInfoModel: CartInfoModel?, animated: Bool = true) {
+        from.navigationController?.pushViewController(ShoppingBagBuilder.make(cartInfoModel: cartInfoModel), animated: animated)
     }
 }

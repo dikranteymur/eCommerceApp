@@ -115,7 +115,9 @@ extension EmptyView {
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(headerLabel)
         stackView.addArrangedSubview(infoLabel)
-        stackView.addArrangedSubview(button)
+        if addButtonAction != nil {
+            stackView.addArrangedSubview(button)            
+        }
         stackView.horizontalToSuperview(insets: .horizontal(40), usingSafeArea: true)
         button.size(.init(width: 80, height: 44))
     }

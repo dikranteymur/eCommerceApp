@@ -13,6 +13,7 @@ import DesignKit
 protocol ProductListViewModelEvents: AnyObject {
     var reloadData: BoolClosure? { get }
     var cartTotalItems: IntClosure? { get }
+    var cartInfoModel: AnyClosure<CartInfoModel>? { get }
 }
 
 protocol ProductListViewModelDataSource: AnyObject {
@@ -23,6 +24,7 @@ protocol ProductListViewModelDataSource: AnyObject {
     func handleIsLike(id: Int, isLike: Bool)
     func addToCart(id: Int)
     func reloadProductModels()
+    func getCartInfoModel() -> CartInfoModel
 }
 
 protocol ProductListViewModelProtocol: ProductListViewModelEvents, ProductListViewModelDataSource {}
@@ -35,6 +37,7 @@ final class ProductListViewModel: BaseViewModel, ProductListViewModelProtocol {
     
     // Events
     var reloadData: BoolClosure?
+    var cartInfoModel: AnyClosure<CartInfoModel>?
     var numberOfItemsInSection: Int {
         return productItemList.count
     }
@@ -43,6 +46,7 @@ final class ProductListViewModel: BaseViewModel, ProductListViewModelProtocol {
     
     func didLoad() {
         fetchProductList()
+        cartInfoModel?(getCartInfoModel())
     }
     
     func cellForItemAt(indexPath: IndexPath) -> ProductListCellModelProtocol? {
@@ -71,6 +75,13 @@ final class ProductListViewModel: BaseViewModel, ProductListViewModelProtocol {
         }
     }
     
+    func getCartInfoModel() -> CartInfoModel {
+        let cart: [ProductModel] = ProductCacheHelper.getCart()
+        var totalAmount: Double = 0
+        cart.forEach({ totalAmount += $0.price ?? 0})
+        return CartInfoModel(totalItems: cart.count, totalAmount: totalAmount)
+    }
+    
     func handleIsLike(id: Int, isLike: Bool) {
         ProductCacheHelper.handleIsLikeStatus(id: id, isLike: isLike)
 //        productModels = ProductCacheHelper.getAllProductModels()
@@ -79,7 +90,7 @@ final class ProductListViewModel: BaseViewModel, ProductListViewModelProtocol {
     
     func addToCart(id: Int) {
         ProductCacheHelper.addToCart(id: id)
-        cartTotalItems?(ProductCacheHelper.getCart().count)
+        cartInfoModel?(getCartInfoModel())
     }
     
     func reloadProductModels() {
@@ -92,7 +103,11 @@ final class ProductListViewModel: BaseViewModel, ProductListViewModelProtocol {
 extension ProductListViewModel {
     
     private func configureCellItems(result: [ProductModel]) {
-        productItemList.append(contentsOf: result.map({ ProductListCellModel(model: $0) }))
-        productModels = result
+        let sortedResult = result.sorted { firstItem, secondItem in
+            guard let firstPrice = firstItem.price, let secondPrice = secondItem.price else { return false }
+            return firstPrice < secondPrice
+        }
+        productItemList.append(contentsOf: sortedResult.map({ ProductListCellModel(model: $0) }))
+        productModels = sortedResult
     }
 }

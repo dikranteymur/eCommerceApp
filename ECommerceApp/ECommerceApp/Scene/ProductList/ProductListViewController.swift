@@ -99,9 +99,9 @@ extension ProductListViewController {
             self.collectionView.reloadData()
         }
         
-        viewModel.cartTotalItems = { [weak self] totalItems in
+        viewModel.cartInfoModel = { [weak self] cartInfoModel in
             guard let self = self else { return }
-            self.navigationBagButtonView.bagTotalNumber = totalItems
+            self.navigationBagButtonView.bagTotalNumber = cartInfoModel.totalItems ?? 0
         }
     }
 }
@@ -127,9 +127,7 @@ extension ProductListViewController {
 extension ProductListViewController: BagViewDelegate {
     
     func handleBagButtonForNavigation() {
-        debugPrint("Will navigate to Shopping Bag scene")
-        let viewController = ShoppingBagViewController(viewModel: ShoppingBagViewModel())
-        navigationController?.pushViewController(viewController, animated: true)
+        app.router.navigaToShoppingBagViewController(from: self, cartInfoModel: viewModel.getCartInfoModel())
     }
 }
 

@@ -16,12 +16,12 @@ protocol ShoppingBagViewModelEvents: AnyObject {
 
 protocol ShoppingBagViewModelDataSource: AnyObject {
     var numberOfRowsInSection: Int? { get }
-    var cartTotalItems: String? { get }
-    var cartTotalAmount: Double { get }
+    var cartInfoModel: CartInfoModel? { get }
     func didLoad()
     func cellForItemAt(indexPath: IndexPath) -> ShoppingBagCellModelProtocol?
     func removeItemFor(id: Int)
     func productModelForNavigate(id: Int) -> ProductModel?
+    func getCartInfoModel() -> CartInfoModel
 }
 
 protocol ShoppingBagViewModelProtocol: ShoppingBagViewModelEvents, ShoppingBagViewModelDataSource {}
@@ -35,21 +35,29 @@ final class ShoppingBagViewModel: BaseViewModel, ShoppingBagViewModelProtocol {
     private var cartItems: [ProductModel] = []
     
     // DataSource
-    var cartTotalItems: String? {
-        return String(cartItems.count)
+    var cartInfoModel: CartInfoModel?
+    
+    init(cartInfoModel: CartInfoModel?) {
+        self.cartInfoModel = cartInfoModel
     }
     
-    var cartTotalAmount: Double {
-        var sum: Double = 0
-        cartItems.forEach { model in
-            guard let price = model.price else { return }
-            sum += price
-        }
-        return sum
+    func getCartTotalItems() -> String? {
+        guard let totalItems = cartInfoModel?.totalItems else { return "" }
+        return String(totalItems)
+    }
+    
+    func getCartTotalAmount() -> String? {
+        guard let totalAmount = cartInfoModel?.totalAmount else { return "" }
+        let amount = String(format: "%.2f", totalAmount)
+        return "\(amount) \(cartInfoModel?.currency ?? "")"
     }
     
     func didLoad() {
         cartItems = ProductCacheHelper.getCart()
+        cartItems = cartItems.sorted { firstItem, secondItem in
+            guard let firstPrice = firstItem.price, let secondPrice = secondItem.price else { return false }
+            return firstPrice < secondPrice
+        }
         reloadData?(cartItems.isEmpty)
     }
     
@@ -69,5 +77,12 @@ final class ShoppingBagViewModel: BaseViewModel, ShoppingBagViewModelProtocol {
     
     func productModelForNavigate(id: Int) -> ProductModel? {
         return cartItems.first(where: { $0.id == id })
+    }
+    
+    func getCartInfoModel() -> CartInfoModel {
+        let cart: [ProductModel] = ProductCacheHelper.getCart()
+        var totalAmount: Double = 0
+        cart.forEach({ totalAmount += $0.price ?? 0})
+        return CartInfoModel(totalItems: cart.count, totalAmount: totalAmount)
     }
 }

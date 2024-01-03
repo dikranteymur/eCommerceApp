@@ -15,7 +15,6 @@ final class ShoppingBagViewController: BaseViewController<ShoppingBagViewModel> 
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .none
         tableView.register(ShoppingBagCell.self)
-        
         return tableView
     }()
     
@@ -62,6 +61,10 @@ final class ShoppingBagViewController: BaseViewController<ShoppingBagViewModel> 
         addSubviews()
         configureContents()
         subscribeViewModel()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         viewModel.didLoad()
     }
 }
@@ -107,25 +110,29 @@ extension ShoppingBagViewController {
 extension ShoppingBagViewController {
     
     private func configureContents() {
+        configureTableView()
         configureNavigationBar()
         configureMiniCartView()
         configureOrderConfirmationButton()
+    }
+    
+    private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
     }
     
     private func configureNavigationBar() {
         navigationItem.title = "Sepetim"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(resetButtonTapped))
     }
     
     private func configureMiniCartView() {
-        totalItemCountLabel.text = viewModel.cartTotalItems
-        totalAmountLabel.text = String(format: "%.2f", viewModel.cartTotalAmount)
+        totalItemCountLabel.text = viewModel.getCartTotalItems()
+        totalAmountLabel.text = viewModel.getCartTotalAmount()
     }
     
     private func configureOrderConfirmationButton() {
         orderConfirmationButton.setTitle("Sepeti Onayla", for: .normal)
+        orderConfirmationButton.addTarget(self, action: #selector(orderConfirmationButtonTapped), for: .touchUpInside)
     }
 }
 
@@ -155,10 +162,14 @@ extension ShoppingBagViewController {
 extension ShoppingBagViewController {
   
     @objc
-    private func resetButtonTapped() {
-        app.router.restartApp()
+    private func orderConfirmationButtonTapped() {
+        let cartInfoModel = viewModel.getCartInfoModel()
+        if cartInfoModel.totalItems == 0 {
+            showAlert(header: "Hata", message: "Sepetiniz bos oldugundan dolayi sepete onay veremezsiniz.")
+        } else {
+            app.router.navigateToOrderConfirmation(from: self, cartInfoModel: viewModel.getCartInfoModel())
+        }
     }
-    
 }
 
 // MARK: - UITableViewDelegate
