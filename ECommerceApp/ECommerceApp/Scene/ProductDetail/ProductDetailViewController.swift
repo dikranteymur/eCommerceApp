@@ -45,7 +45,14 @@ final class ProductDetailViewController: BaseViewController<ProductDetailViewMod
         return button
     }()
     
-    private lazy var bagButton = CommonButtonView()
+    private lazy var addToBagButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .colorBlack.withAlphaComponent(0.85)
+        button.setTitle("Sepete Ekle", for: .normal)
+        button.tintColor = .tintColor
+        button.layer.cornerRadius = 12
+        return button
+    }()
     
     private lazy var categoryLabel: UILabel = {
         let label = UILabel()
@@ -77,6 +84,7 @@ final class ProductDetailViewController: BaseViewController<ProductDetailViewMod
         addSubviews()
         configureContens()
         subscribeViewModel()
+        viewModel.didload()
     }
 }
 
@@ -92,7 +100,6 @@ extension ProductDetailViewController {
     }
     
     private func addNavigationBar() {
-//        configureNavBar()
         view.addSubview(navigationBar)
         navigationBar.edgesToSuperview(excluding: .bottom)
         navigationBar.height(48)
@@ -101,7 +108,8 @@ extension ProductDetailViewController {
     private func addScrollView() {
         view.addSubview(scrollView)
         scrollView.topToBottom(of: navigationBar)
-        scrollView.edgesToSuperview(excluding: .top, usingSafeArea: true)
+        scrollView.horizontalToSuperview()
+        scrollView.bottomToSuperview()
     }
     
     private func addProductImageView() {
@@ -123,10 +131,10 @@ extension ProductDetailViewController {
     }
     
     private func addBagButton() {
-        scrollView.addSubview(bagButton)
-        bagButton.topToBottom(of: infoStackView, offset: 20)
-        bagButton.centerXToSuperview()
-//        bagButton.size(.init(width: 120, height: 44))
+        scrollView.addSubview(addToBagButton)
+        addToBagButton.topToBottom(of: infoStackView, offset: 20)
+        addToBagButton.centerXToSuperview()
+        addToBagButton.size(.init(width: 140, height: 44))
     }
 }
 
@@ -149,29 +157,22 @@ extension ProductDetailViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: navigationRightItemButtonView)
         navigationBar.items = [navigationItem]
         
-        // TODO: - navigationRightItemButtonView true-false 'a gore resmi degisecek
-        navigationRightItemButtonView.backgroundImage = UIImage(systemName: "heart")
+        if let isLike = viewModel.isLike, isLike {
+            updateIsLikeButton(isLike: isLike)
+        }
         navigationRightItemButtonView.addButtonAction = { [weak self] in
             guard let self = self else { return }
-            print("Like Butonuna basildi")
+            self.viewModel.handleLikeButtonTapped()
         }
     }
     
     private func configureBagButton() {
-        bagButton.buttonBackgroundColor = .colorBlack.withAlphaComponent(0.5)
-        bagButton.buttonTitle = "Sepete Ekle"
-        bagButton.buttonTitleColor = .tintColor
-        bagButton.buttonCornerRadius = 12
-        
-        bagButton.addButtonAction = { [weak self] in
-            guard let self = self else { return }
-            print("Sepete Ekle Calisti")
-        }
+        addToBagButton.addTarget(self, action: #selector(bagButtonTapped), for: .touchUpInside)
     }
     
     private func configureProductImageVie() {
         guard let model = viewModel.model else { return }
-        productImageView.image = UIImage(named: model.imageName ?? "empty_image")
+        productImageView.image = UIImage(named: model.imageName ?? "photo.fill.on.rectangle.fill")
         nameLabel.text = model.name
         priceLabel.text = viewModel.getPriceAndCurrency()
         categoryLabel.text = model.category
@@ -182,18 +183,32 @@ extension ProductDetailViewController {
             colorView.backgroundColor = UIColor(named: colorString)
         }
     }
+    
+    private func updateIsLikeButton(isLike: Bool) {
+        if isLike {
+            navigationRightItemButtonView.backgroundImage = UIImage(systemName: "heart.fill")
+        } else {
+            navigationRightItemButtonView.backgroundImage = UIImage(systemName: "heart")
+        }
+    }
 }
 
 // MARK: - SubscribeViewModel
 extension ProductDetailViewController {
     
     private func subscribeViewModel() {
-        
+        viewModel.updateLikeButton = { [weak self] isLike in
+            guard let self = self else { return }
+            self.updateIsLikeButton(isLike: isLike)
+        }
     }
 }
 
 // MARK: - Actions
 extension ProductDetailViewController {
     
-
+    @objc
+    private func bagButtonTapped() {
+        viewModel.addToCart()
+    }
 }

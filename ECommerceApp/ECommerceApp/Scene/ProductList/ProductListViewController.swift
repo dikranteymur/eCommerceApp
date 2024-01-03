@@ -10,9 +10,12 @@ import DesignKit
 
 final class ProductListViewController: BaseViewController<ProductListViewModel> {
     
+    private lazy var navigationBagButtonView = BagView()
+    
     private lazy var collectionView: UICollectionView = {
         let layout = CustomCollectionFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.register(ProductListCell.self)
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -24,6 +27,7 @@ final class ProductListViewController: BaseViewController<ProductListViewModel> 
         addSubviews()
         configureContents()
         subscribeViewModel()
+        addObservers()
         viewModel.didLoad()
     }
 }
@@ -43,10 +47,8 @@ extension ProductListViewController {
 extension ProductListViewController {
     
     private func configureContents() {
-        let bagView = BagView()
-        bagView.delegate = self
-        bagView.bagTotalNumber = 11
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: bagView)
+        navigationBagButtonView.delegate = self
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: navigationBagButtonView)
         navigationItem.title = "Urunler"
     }
 }
@@ -73,6 +75,7 @@ extension ProductListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: ProductListCell = collectionView.dequeueReusableCell(ProductListCell.self, indexPath: indexPath)
         cell.setCell(viewModel: viewModel.cellForItemAt(indexPath: indexPath))
+        cell.delegate = self
         return cell
     }
 }
@@ -84,25 +87,39 @@ extension ProductListViewController {
         viewModel.reloadData = { [weak self] isEmpty in
             guard let self = self else { return }
             if isEmpty {
-                let backgroundView = UIView()
-                backgroundView.backgroundColor = .colorBlack
-                backgroundView.layer.cornerRadius = 12
-                backgroundView.clipsToBounds = true
-                let label = UILabel()
-                label.text = "LISTE BOS. TEKRAR DENEYIN"
-                label.numberOfLines = 0
-                label.font = .fontRegular20
-                label.textColor = .red
-                label.textAlignment = .center
-                backgroundView.addSubview(label)
-                label.edgesToSuperview(insets: .uniform(40))
-                collectionView.backgroundView = backgroundView
-                backgroundView.centerInSuperview()
+                self.collectionView.setCustomEmptyView(header: "Hata!", 
+                                                       info: "Bir hata meydana geldi. Lutfen tekrar deneyiniz",
+                                                       buttontitle: "Yenile") { [weak self] in
+                    guard let self = self else { return }
+                    debugPrint("Yenile button calisti")
+                }
             } else {
                 self.collectionView.removeBacgroundView()
-                self.collectionView.reloadData()
             }
+            self.collectionView.reloadData()
         }
+        
+        viewModel.cartTotalItems = { [weak self] totalItems in
+            guard let self = self else { return }
+            self.navigationBagButtonView.bagTotalNumber = totalItems
+        }
+    }
+}
+
+// MARK: - Observers
+extension ProductListViewController {
+    
+    private func addObservers() {
+        NotificationCenter.addNotification(self, selector: #selector(reloadProductModels), name: .reloadProductModels)
+    }
+}
+
+// MARK: - Actions
+extension ProductListViewController {
+    
+    @objc
+    private func reloadProductModels() {
+        viewModel.reloadProductModels()
     }
 }
 
@@ -111,5 +128,18 @@ extension ProductListViewController: BagViewDelegate {
     
     func handleBagButtonForNavigation() {
         debugPrint("Will navigate to Shopping Bag scene")
+        let viewController = ShoppingBagViewController(viewModel: ShoppingBagViewModel())
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+extension ProductListViewController: ProductListCellDelegate {
+    
+    func handleIsLike(id: Int, isLike: Bool) {
+        viewModel.handleIsLike(id: id, isLike: isLike)
+    }
+    
+    func addToCart(id: Int) {
+        viewModel.addToCart(id: id)
     }
 }

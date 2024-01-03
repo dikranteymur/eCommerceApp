@@ -10,6 +10,10 @@
 		208340622B4423C2001A624D /* CommonButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208340612B4423C2001A624D /* CommonButtonView.swift */; };
 		208340672B442DF5001A624D /* ItemButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208340662B442DF5001A624D /* ItemButtonView.swift */; };
 		208340692B4463EC001A624D /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208340682B4463EC001A624D /* Extension+UIView.swift */; };
+		2083407A2B44B24F001A624D /* ShoppingBagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208340792B44B24F001A624D /* ShoppingBagCell.swift */; };
+		2083407C2B44B259001A624D /* ShoppingBagCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2083407B2B44B259001A624D /* ShoppingBagCellModel.swift */; };
+		208340802B44C41B001A624D /* Extension+UITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2083407F2B44C41B001A624D /* Extension+UITableViewController.swift */; };
+		208340832B44C719001A624D /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208340822B44C719001A624D /* EmptyView.swift */; };
 		20D23F532B432C9E00E4C9A1 /* DesignKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 20D23F522B432C9E00E4C9A1 /* DesignKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		20D23F612B432F7300E4C9A1 /* Extension+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D23F602B432F7300E4C9A1 /* Extension+UICollectionView.swift */; };
 		20D23F632B432F9D00E4C9A1 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D23F622B432F9D00E4C9A1 /* Extension+UIColor.swift */; };
@@ -27,6 +31,10 @@
 		208340612B4423C2001A624D /* CommonButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButtonView.swift; sourceTree = "<group>"; };
 		208340662B442DF5001A624D /* ItemButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemButtonView.swift; sourceTree = "<group>"; };
 		208340682B4463EC001A624D /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
+		208340792B44B24F001A624D /* ShoppingBagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingBagCell.swift; sourceTree = "<group>"; };
+		2083407B2B44B259001A624D /* ShoppingBagCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingBagCellModel.swift; sourceTree = "<group>"; };
+		2083407F2B44C41B001A624D /* Extension+UITableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITableViewController.swift"; sourceTree = "<group>"; };
+		208340822B44C719001A624D /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		20D23F4F2B432C9E00E4C9A1 /* DesignKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DesignKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20D23F522B432C9E00E4C9A1 /* DesignKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DesignKit.h; sourceTree = "<group>"; };
 		20D23F602B432F7300E4C9A1 /* Extension+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UICollectionView.swift"; sourceTree = "<group>"; };
@@ -90,6 +98,39 @@
 			path = ItemButton;
 			sourceTree = "<group>";
 		};
+		208340782B44B22E001A624D /* ShoppingBagTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				208340792B44B24F001A624D /* ShoppingBagCell.swift */,
+				2083407B2B44B259001A624D /* ShoppingBagCellModel.swift */,
+			);
+			path = ShoppingBagTableCell;
+			sourceTree = "<group>";
+		};
+		2083407D2B44B25B001A624D /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				208340782B44B22E001A624D /* ShoppingBagTableCell */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		2083407E2B44B264001A624D /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				20D23F672B432FD000E4C9A1 /* ProductListCollectionCell */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		208340812B44C70F001A624D /* EmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				208340822B44C719001A624D /* EmptyView.swift */,
+			);
+			path = EmptyView;
+			sourceTree = "<group>";
+		};
 		20D23F452B432C9E00E4C9A1 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				20D23F602B432F7300E4C9A1 /* Extension+UICollectionView.swift */,
+				2083407F2B44C41B001A624D /* Extension+UITableViewController.swift */,
 				208340682B4463EC001A624D /* Extension+UIView.swift */,
 				20D23F622B432F9D00E4C9A1 /* Extension+UIColor.swift */,
 				20D23F642B432FB100E4C9A1 /* Extension+UIFont.swift */,
@@ -134,7 +176,8 @@
 		20D23F662B432FC900E4C9A1 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				20D23F672B432FD000E4C9A1 /* ProductListCollectionCell */,
+				2083407D2B44B25B001A624D /* TableViewCell */,
+				2083407E2B44B264001A624D /* CollectionViewCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -159,6 +202,7 @@
 		20D23F7C2B434DC100E4C9A1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				208340812B44C70F001A624D /* EmptyView */,
 				208340652B442DAB001A624D /* ItemButton */,
 				208340602B4423B7001A624D /* CommonButton */,
 				2083405A2B442172001A624D /* BagView */,
@@ -283,7 +327,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				208340692B4463EC001A624D /* Extension+UIView.swift in Sources */,
+				208340832B44C719001A624D /* EmptyView.swift in Sources */,
+				2083407C2B44B259001A624D /* ShoppingBagCellModel.swift in Sources */,
 				208340672B442DF5001A624D /* ItemButtonView.swift in Sources */,
+				2083407A2B44B24F001A624D /* ShoppingBagCell.swift in Sources */,
 				20D23F7B2B4332F200E4C9A1 /* CustomCollectionFlowLayout.swift in Sources */,
 				20D23F7E2B434DCE00E4C9A1 /* BagView.swift in Sources */,
 				208340622B4423C2001A624D /* CommonButtonView.swift in Sources */,
@@ -293,6 +340,7 @@
 				20D23F632B432F9D00E4C9A1 /* Extension+UIColor.swift in Sources */,
 				20D23F692B432FED00E4C9A1 /* ProductListCell.swift in Sources */,
 				20D23F6B2B43300800E4C9A1 /* ProductListCellModel.swift in Sources */,
+				208340802B44C41B001A624D /* Extension+UITableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

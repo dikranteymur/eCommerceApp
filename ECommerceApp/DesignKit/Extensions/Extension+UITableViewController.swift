@@ -1,21 +1,21 @@
 //
-//  Extension+UICollectionView.swift
+//  Extension+UITableViewController.swift
 //  DesignKit
 //
-//  Created by Dikran Teymur on 1.01.2024.
+//  Created by Dikran Teymur on 3.01.2024.
 //
 
 import UIKit
 import UtilityKit
 
-public extension UICollectionView {
+public extension UITableView {
     
-    func register<T: UICollectionViewCell>(_ cellClass: T.Type) {
-        register(T.self, forCellWithReuseIdentifier: String(describing: T.self))
+    func register<T: UITableViewCell>(_ cellClass: T.Type) {
+        register(T.self, forCellReuseIdentifier: String(describing: T.self))
     }
     
-    func dequeueReusableCell<T: UICollectionViewCell>(_ cellClass: T.Type, indexPath: IndexPath) -> T {
-        guard let cell = dequeueReusableCell(withReuseIdentifier: String(describing: T.self), for: indexPath) as? T else {
+    func dequeueReusableCell<T: UITableViewCell>(indexPath: IndexPath) -> T {
+        guard let cell = dequeueReusableCell(withIdentifier: String(describing: T.self), for: indexPath) as? T else {
             fatalError("Cell not found: \(String(describing: T.self))")
         }
         return cell
@@ -42,3 +42,4 @@ public extension UICollectionView {
         backgroundView = nil
     }
 }
+

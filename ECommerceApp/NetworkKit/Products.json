@@ -6,7 +6,9 @@
         "category": "Sweater",
         "currency": "USD",
         "image_name": "long-sleeve-sweater",
-        "color": "White"
+        "color": "White",
+        "is_like": false,
+        "count": 0
     },
     {
         "id": 17936,
@@ -15,7 +17,9 @@
         "category": "Coat",
         "currency": "USD",
         "image_name": "long-coat",
-        "color": "Black"
+        "color": "Black",
+        "is_like": false,
+        "count": 0
     },
     {
         "id": 14536,
@@ -24,7 +28,9 @@
         "category": "Coat",
         "currency": "USD",
         "image_name": "rain-coat",
-        "color": "White"
+        "color": "White",
+        "is_like": false,
+        "count": 0
     },
     {
         "id": 18218,
@@ -33,7 +39,9 @@
         "category": "Dress",
         "currency": "USD",
         "image_name": "printed-midi-dress",
-        "color": "Blue"
+        "color": "Blue",
+        "is_like": false,
+        "count": 0
     },
     {
         "id": 12816,
@@ -42,7 +50,9 @@
         "category": "Coat",
         "currency": "USD",
         "image_name": "blazer-coat",
-        "color": "Black"
+        "color": "Black",
+        "is_like": false,
+        "count": 0
     },
     {
         "id": 11189,
@@ -51,7 +61,9 @@
         "category": "Dress",
         "currency": "USD",
         "image_name": "scoop-neck-midi-dress",
-        "color": "Black"
+        "color": "Black",
+        "is_like": false,
+        "count": 0
     },
     {
         "id": 17238,
@@ -60,7 +72,9 @@
         "category": "Sweater",
         "currency": "USD",
         "image_name": "short-sleeve-sweater",
-        "color": "White"
+        "color": "White",
+        "is_like": false,
+        "count": 0
     },
     {
         "id": 16108,
@@ -69,7 +83,9 @@
         "category": "Dress",
         "currency": "USD",
         "image_name": "party-dress",
-        "color": "Blue"
+        "color": "Blue",
+        "is_like": false,
+        "count": 0
     },
     {
         "id": 12408,
@@ -78,7 +94,9 @@
         "category": "Coat",
         "currency": "USD",
         "image_name": "winter-coat",
-        "color": "White"
+        "color": "White",
+        "is_like": false,
+        "count": 0
     },
     {
         "id": 12348,
@@ -87,6 +105,8 @@
         "category": "Dress",
         "currency": "USD",
         "image_name": "casual-dress",
-        "color": "Black"
+        "color": "Black",
+        "is_like": false,
+        "count": 0
     }
 ]

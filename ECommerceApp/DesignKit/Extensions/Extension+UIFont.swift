@@ -27,6 +27,19 @@ public extension UIFont {
     class var fontSemiBold12: UIFont {
         return UIFont(name: FontNames.semiBold.rawValue, size: 12) ?? .systemFont(ofSize: 12)
     }
+    
+    // Thin font: 14
+    class var fontThin14: UIFont {
+        return UIFont(name: FontNames.thin.rawValue, size: 14) ?? .systemFont(ofSize: 14)
+    }
+    
+    class var fontRegular14: UIFont {
+        return UIFont(name: FontNames.regular.rawValue, size: 14) ?? .systemFont(ofSize: 14)
+    }
+    
+    class var fontSemiBold14: UIFont {
+        return UIFont(name: FontNames.semiBold.rawValue, size: 14) ?? .systemFont(ofSize: 14)
+    }
 
     // Thin font: 16
     class var fontThin16: UIFont {

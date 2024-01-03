@@ -8,6 +8,11 @@
 import UIKit
 import TinyConstraints
 
+public protocol ProductListCellDelegate: AnyObject {
+    func addToCart(id: Int)
+    func handleIsLike(id: Int, isLike: Bool)
+}
+
 public final class ProductListCell: UICollectionViewCell {
     
     private let productImageView: UIImageView = {
@@ -23,7 +28,7 @@ public final class ProductListCell: UICollectionViewCell {
         button.tintColor = .colorGray
         button.setImage(UIImage(systemName: "heart"), for: .normal)
         button.backgroundColor = .lightGray
-        button.layer.cornerRadius = 22
+        button.layer.cornerRadius = 16
         button.clipsToBounds = true
         return button
     }()
@@ -33,6 +38,7 @@ public final class ProductListCell: UICollectionViewCell {
         label.font = .fontSemiBold16
         label.textColor = .colorBlack
         label.numberOfLines = 2
+        label.addShadow()
         return label
     }()
     
@@ -40,12 +46,15 @@ public final class ProductListCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .fontRegular12
         label.textColor = .colorBlack
+        label.addShadow()
         return label
     }()
     
     private let addToBagButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Sepete Ekle", for: .normal)
+        button.backgroundColor = .colorBlack.withAlphaComponent(0.85)
+        button.layer.cornerRadius = 12
         return button
     }()
     
@@ -75,6 +84,7 @@ public final class ProductListCell: UICollectionViewCell {
     }
     
     public weak var viewModel: ProductListCellModelProtocol?
+    public weak var delegate: ProductListCellDelegate?
     
     public func setCell(viewModel: ProductListCellModelProtocol?) {
         self.viewModel = viewModel
@@ -102,17 +112,17 @@ extension ProductListCell {
         stackView.horizontalToSuperview(insets: .horizontal(8))
         stackView.addArrangedSubview(productNameLabel)
         stackView.addArrangedSubview(productPriceLabel)
-        stackView.addArrangedSubview(addToBagButtonBackgroundView)
-        addToBagButtonBackgroundView.addSubview(addToBagButton)
-        addToBagButton.centerXToSuperview()
-        addToBagButton.verticalToSuperview(insets: .vertical(4))
+        stackView.addArrangedSubview(addToBagButton)
+//        addToBagButton.centerXToSuperview()
+//        addToBagButton.verticalToSuperview(insets: .vertical(4))
+        addToBagButton.height(44)
     }
     
     private func addLikeButton() {
         contentView.addSubview(likeButton)
         likeButton.topToSuperview()
         likeButton.trailingToSuperview()
-        likeButton.size(.init(width: 44, height: 44))
+        likeButton.size(.init(width: 32, height: 32))
     }
 }
 
@@ -120,10 +130,11 @@ extension ProductListCell {
 extension ProductListCell {
     
     private func configureContents() {
-        productImageView.image = UIImage(named: viewModel?.imageString ?? "empty_view")
+        productImageView.image = UIImage(named: viewModel?.imageString ?? "photo.fill.on.rectangle.fill")
         productNameLabel.text = viewModel?.name
         productPriceLabel.text = viewModel?.price
         configureLikeButton()
+        configureBagButton()
     }
     
     private func configureLikeButton() {
@@ -134,6 +145,10 @@ extension ProductListCell {
         }
         likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
     }
+    
+    private func configureBagButton() {
+        addToBagButton.addTarget(self, action: #selector(addToBagButtonTapped), for: .touchUpInside)
+    }
 }
 
 // MARK: - Actions
@@ -141,7 +156,15 @@ extension ProductListCell {
     
     @objc
     private func likeButtonTapped() {
-        configureLikeButton()
+        print(viewModel?.isLike)
+        guard let id = viewModel?.id, let isLike = viewModel?.isLike else { return }
+        delegate?.handleIsLike(id: id, isLike: !isLike)
+    }
+    
+    @objc
+    private func addToBagButtonTapped() {
+        guard let id = viewModel?.id else { return }
+        delegate?.addToCart(id: id)
     }
 }
 

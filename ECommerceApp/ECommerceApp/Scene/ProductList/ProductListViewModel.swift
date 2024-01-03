@@ -12,13 +12,17 @@ import DesignKit
 
 protocol ProductListViewModelEvents: AnyObject {
     var reloadData: BoolClosure? { get }
+    var cartTotalItems: IntClosure? { get }
 }
 
 protocol ProductListViewModelDataSource: AnyObject {
     var numberOfItemsInSection: Int { get }
+    func didLoad()
     func cellForItemAt(indexPath: IndexPath) -> ProductListCellModelProtocol?
     func productItemModelAt(indexPath: IndexPath) -> ProductModel?
-    func didLoad()
+    func handleIsLike(id: Int, isLike: Bool)
+    func addToCart(id: Int)
+    func reloadProductModels()
 }
 
 protocol ProductListViewModelProtocol: ProductListViewModelEvents, ProductListViewModelDataSource {}
@@ -34,6 +38,8 @@ final class ProductListViewModel: BaseViewModel, ProductListViewModelProtocol {
     var numberOfItemsInSection: Int {
         return productItemList.count
     }
+    
+    var cartTotalItems: IntClosure?
     
     func didLoad() {
         fetchProductList()
@@ -63,6 +69,22 @@ final class ProductListViewModel: BaseViewModel, ProductListViewModelProtocol {
             }
             reloadData?(productItemList.isEmpty)
         }
+    }
+    
+    func handleIsLike(id: Int, isLike: Bool) {
+        ProductCacheHelper.handleIsLikeStatus(id: id, isLike: isLike)
+//        productModels = ProductCacheHelper.getAllProductModels()
+//        reloadData?(productModels.isEmpty)
+    }
+    
+    func addToCart(id: Int) {
+        ProductCacheHelper.addToCart(id: id)
+        cartTotalItems?(ProductCacheHelper.getCart().count)
+    }
+    
+    func reloadProductModels() {
+//        configureCellItems(result: ProductCacheHelper.getAllProductModels())
+//        reloadData?(productModels.isEmpty)
     }
 }
 

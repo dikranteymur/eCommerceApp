@@ -11,6 +11,6 @@ import NetworkKit
 extension ProductListCellModel {
     
     convenience init(model: ProductModel) {
-        self.init(imageString: model.imageName, name: model.name, price: String(model.price ?? 0).appending(model.currency ?? ""), isLike: model.isLike)
+        self.init(id: model.id, imageString: model.imageName, name: model.name, price: String(model.price ?? 0).appending(model.currency ?? ""), isLike: model.isLike, count: model.count)
     }
 }

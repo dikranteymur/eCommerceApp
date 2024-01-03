@@ -15,7 +15,7 @@ public struct ProductModel: Codable {
     public let currency: String?
     public let imageName: String?
     public let color: String?
-    public var isLike: Bool?
+    public var isLike: Bool? = false
     public var count: Int?
     
     private enum CodingKeys: String, CodingKey {
@@ -26,5 +26,7 @@ public struct ProductModel: Codable {
         case currency
         case imageName = "image_name"
         case color
+        case isLike = "is_like"
+        case count
     }
 }

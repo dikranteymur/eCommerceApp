@@ -16,13 +16,15 @@ public struct ProductCacheHelper {
     }
     
     // For Product Items
-    public static func saveAllProductModels(value: [ProductModel]) {
-        ProductCacheHelper.saveData(model: value, forKey: .forProductCache)
+    @discardableResult
+    public static func saveAllProductModels(value: [ProductModel]) -> [ProductModel] {
+        saveData(model: value, forKey: .forProductCache)
         UserDefaults.standard.set(true, forKey: CacheKeys.forProductCacheIsSaved.rawValue)
+        return getAllProductModels()
     }
     
     public static func getAllProductModels() -> [ProductModel] {
-        return ProductCacheHelper.getData(model: ProductModel.self, forKey: .forProductCache)
+        return getData(model: ProductModel.self, forKey: .forProductCache)
     }
     
     public static func getProductModelFrom(id: Int) -> ProductModel? {
@@ -34,7 +36,8 @@ public struct ProductCacheHelper {
         if let index = tempProductModels.firstIndex(where: { $0.id == id }){
             tempProductModels[index].isLike = isLike
         }
-        saveAllProductModels(value: tempProductModels)
+        saveData(model: tempProductModels, forKey: .forProductCache)
+        NotificationCenter.postNotification(name: .reloadProductModels)
     }
     
     public static func isSavedProductList() -> Bool {
@@ -48,22 +51,36 @@ public struct ProductCacheHelper {
     
     // For Cart Items
     public static func getCart() -> [ProductModel] {
-        return ProductCacheHelper.getData(model: ProductModel.self, forKey: .forCartCache)
+        return getData(model: ProductModel.self, forKey: .forCartCache)
     }
     
-    public static func addProductToCart(value: ProductModel) {
+    @discardableResult
+    public static func saveCart(value: [ProductModel]) -> [ProductModel] {
+        saveData(model: value, forKey: .forCartCache)
+        return getCart()
+    }
+    
+    public static func addToCart(id: Int) {
         var cartItems = getCart()
-        if let index = cartItems.firstIndex(where: { $0.id == value.id }) {
+        if let index = cartItems.firstIndex(where: { $0.id == id }) {
             if let count = cartItems[index].count {
                 cartItems[index].count = count + 1
             } else {
                 cartItems[index].count = 1
             }
         } else {
-            cartItems.append(value)
+            if let model = getProductModelFrom(id: id) {
+                cartItems.append(model)
+            }
         }
-//        UserDefaults.standard.set(try? PropertyListEncoder().encode(value), forKey: CacheKeys.forProductCache.rawValue)
-        ProductCacheHelper.saveData(model: cartItems, forKey: .forCartCache)
+        saveData(model: cartItems, forKey: .forCartCache)
+    }
+    public static func removeToCart(id: Int) {
+        var tempCartItems = getCart()
+        if let index = tempCartItems.firstIndex(where: { $0.id == id }) {
+            tempCartItems.remove(at: index)
+        }
+        saveCart(value: tempCartItems)
     }
     
     // TODO: - Deneme amaclidir. Silinecek
@@ -77,10 +94,6 @@ public struct ProductCacheHelper {
     
     public static func removeCart() {
         UserDefaults.standard.removeObject(forKey: CacheKeys.forCartCache.rawValue)
-    }
-    
-    public static func removeCartItem(id: Int) {
-        
     }
     
     public static func removeAll() {
