@@ -23,7 +23,6 @@ protocol ProductListViewModelDataSource: AnyObject {
     func productItemModelAt(indexPath: IndexPath) -> ProductModel?
     func handleIsLike(id: Int, isLike: Bool)
     func addToCart(id: Int)
-    func reloadProductModels()
     func getCartInfoModel() -> CartInfoModel
 }
 
@@ -65,8 +64,8 @@ final class ProductListViewModel: BaseViewModel, ProductListViewModelProtocol {
                 if ProductCacheHelper.isSavedProductList() {
                     self.configureCellItems(result: ProductCacheHelper.getAllProductModels())
                 } else {
-                    ProductCacheHelper.saveAllProductModels(value: result)
-                    self.configureCellItems(result: result)
+                    ProductCacheHelper.saveAllProductModels(value: ProductCacheHelper.sort(items: result))
+                    self.configureCellItems(result: ProductCacheHelper.sort(items: result))
                 }
             case .failure(let error):
                 print(error)
@@ -92,18 +91,13 @@ final class ProductListViewModel: BaseViewModel, ProductListViewModelProtocol {
     
     func handleIsLike(id: Int, isLike: Bool) {
         ProductCacheHelper.handleIsLikeStatus(id: id, isLike: isLike)
-//        productModels = ProductCacheHelper.getAllProductModels()
-//        reloadData?(productModels.isEmpty)
+        configureCellItems(result: ProductCacheHelper.getAllProductModels())
+        reloadData?(productModels.isEmpty)
     }
     
     func addToCart(id: Int) {
         ProductCacheHelper.addToCart(id: id)
         cartInfoModel?(getCartInfoModel())
-    }
-    
-    func reloadProductModels() {
-//        configureCellItems(result: ProductCacheHelper.getAllProductModels())
-//        reloadData?(productModels.isEmpty)
     }
 }
 

@@ -92,7 +92,6 @@ final class ProductDetailViewController: BaseViewController<ProductDetailViewMod
 extension ProductDetailViewController {
     
     private func addSubviews() {
-//        addNavigationBar()
         addScrollView()
         addProductImageView()
         addInfoStackView()
@@ -107,7 +106,6 @@ extension ProductDetailViewController {
     
     private func addScrollView() {
         view.addSubview(scrollView)
-//        scrollView.topToBottom(of: navigationBar)
         scrollView.topToSuperview(usingSafeArea: true)
         scrollView.horizontalToSuperview()
         scrollView.bottomToSuperview()
@@ -150,22 +148,6 @@ extension ProductDetailViewController {
     }
     
     private func configureNavBar() {
-//        let appearance = UINavigationBarAppearance()
-//        appearance.backgroundColor = .colorGray
-//        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.tintColor]
-//        navigationBar.standardAppearance = appearance
-//        let navigationItem = UINavigationItem(title: viewModel.model?.name ?? "")
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: navigationRightItemButtonView)
-//        navigationBar.items = [navigationItem]
-//        
-//        if let isLike = viewModel.isLike, isLike {
-//            updateIsLikeButton(isLike: isLike)
-//        }
-//        navigationRightItemButtonView.addButtonAction = { [weak self] in
-//            guard let self = self else { return }
-//            self.viewModel.handleLikeButtonTapped()
-//        }
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: navigationRightItemButtonView)
         navigationItem.title = viewModel.getProductName()
         navigationRightItemButtonView.addButtonAction = { [weak self] in
@@ -195,8 +177,10 @@ extension ProductDetailViewController {
     private func updateIsLikeButton(isLike: Bool) {
         if isLike {
             navigationRightItemButtonView.backgroundImage = UIImage(systemName: "heart.fill")
+            navigationRightItemButtonView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
         } else {
             navigationRightItemButtonView.backgroundImage = UIImage(systemName: "heart")
+            navigationRightItemButtonView.transform = CGAffineTransform(scaleX: 1, y: 1)
         }
     }
 }

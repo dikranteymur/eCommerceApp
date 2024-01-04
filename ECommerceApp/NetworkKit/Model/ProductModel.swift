@@ -5,8 +5,6 @@
 //  Created by Dikran Teymur on 1.01.2024.
 //
 
-import Foundation
-
 public struct ProductModel: Codable {
     public let id: Int?
     public let price: Double?

@@ -10,7 +10,7 @@ import DesignKit
 
 final class ShoppingBagViewController: BaseViewController<ShoppingBagViewModel> {
     
-    private let tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .none
@@ -18,7 +18,7 @@ final class ShoppingBagViewController: BaseViewController<ShoppingBagViewModel> 
         return tableView
     }()
     
-    private let miniCartView: UIView = {
+    private lazy var miniCartView: UIView = {
         let view = UIView()
         view.backgroundColor = .colorWhite
         view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -26,28 +26,28 @@ final class ShoppingBagViewController: BaseViewController<ShoppingBagViewModel> 
         return view
     }()
     
-    private let totalItemCountLabel: UILabel = {
+    private lazy var totalItemCountLabel: UILabel = {
         let label = UILabel()
         label.font = .fontRegular14
         label.textColor = .colorGray
         return label
     }()
     
-    private let totalAmountLabel: UILabel = {
+    private lazy var totalAmountLabel: UILabel = {
         let label = UILabel()
         label.font = .fontSemiBold16
         label.textColor = .colorBlack
         return label
     }()
     
-    private let miniCartLabelStackView: UIStackView = {
+    private lazy var miniCartLabelStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 8
         return stackView
     }()
     
-    private let orderConfirmationButton: UIButton = {
+    private lazy var orderConfirmationButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .tintColor
         button.setTitleColor(.colorWhite, for: .normal)
@@ -144,9 +144,9 @@ extension ShoppingBagViewController {
         viewModel.reloadData = { [weak self] isEmpty in
             guard let self = self else { return }
             if isEmpty {
-                self.tableView.setCustomEmptyView(header: "Henuz sepetine urun eklemedin.",
-                                                  info: "Urunleri sepetine eklemek icin gezinebilir ve sepetine her zaman urun ekleyebilirsin.",
-                                                  buttontitle: "Devam Et") { [weak self] in
+                self.tableView.backgroundView = view.setCustomEmptyView(header: "Henuz sepetine urun eklemedin.",
+                                                                   info: "Urunleri sepetine eklemek icin gezinebilir ve sepetine her zaman urun ekleyebilirsin.",
+                                                                   buttontitle: "Devam Et") { [weak self] in
                     guard let self = self else { return }
                     self.navigationController?.popViewController(animated: true)
                 }
@@ -160,7 +160,7 @@ extension ShoppingBagViewController {
 
 // MARK: - Actions
 extension ShoppingBagViewController {
-  
+    
     @objc
     private func orderConfirmationButtonTapped() {
         let cartInfoModel = viewModel.updateCartInfoModel()
@@ -202,8 +202,7 @@ extension ShoppingBagViewController: ShoppingBagCellDelegate {
     
     func navigateToProductDetail(id: Int) {
         if let model = viewModel.productModelForNavigate(id: id) {
-            let viewController = ProductDetailBuilder.make(model: model)
-            navigationController?.present(viewController, animated: true)
+            app.router.navigateToProductDetail(from: self, model: model)
         }
     }
     

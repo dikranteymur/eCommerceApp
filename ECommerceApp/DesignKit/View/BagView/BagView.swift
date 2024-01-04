@@ -52,9 +52,11 @@ public final class BagView: UIView {
         configureBagTotalLabel()
     }
     
+    #if DEBUG
     deinit {
         debugPrint("deinit \(self)")
     }
+    #endif
 }
 
 // MARK: - UILayout

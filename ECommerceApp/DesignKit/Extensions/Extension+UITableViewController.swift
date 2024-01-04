@@ -21,23 +21,6 @@ public extension UITableView {
         return cell
     }
     
-    func setCustomEmptyView(header: String,
-                            info: String?,
-                            buttontitle: String?,
-                            buttonBackgroundColor: UIColor = .tintColor,
-                            buttonTintColor: UIColor = .colorGray,
-                            action: VoidClosure?) {
-        let emptyView = EmptyView()
-        emptyView.addImage = UIImage(systemName: "photo.fill.on.rectangle.fill")
-        emptyView.headerText = header
-        emptyView.infoText = info
-        emptyView.buttonTitle = buttontitle
-        emptyView.buttonBackgroundColor = buttonBackgroundColor
-        emptyView.buttonTitleColor = .colorGray
-        emptyView.addButtonAction = action
-        backgroundView = emptyView
-    }
-    
     func removeBacgroundView() {
         backgroundView = nil
     }

@@ -8,6 +8,7 @@
 import UIKit
 
 final class ProductListBuilder {
+    
     static func make() -> ProductListViewController {
         let viewModel = ProductListViewModel()
         let viewController = ProductListViewController(viewModel: viewModel)

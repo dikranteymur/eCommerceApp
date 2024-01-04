@@ -43,11 +43,13 @@ final class AppRouter {
 extension AppRouter {
     
     func navigateToOrderConfirmation(from: UIViewController, cartInfoModel: CartInfoModel?, animated: Bool = true) {
-        from.navigationController?.pushViewController(OrderConfirmationBuilder.make(cartInfoModel: cartInfoModel), animated: animated)
+        let orderConfimationViewController = OrderConfirmationBuilder.make(cartInfoModel: cartInfoModel)
+        from.navigationController?.pushViewController(orderConfimationViewController, animated: animated)
     }
     
     func navigaToShoppingBagViewController(from: UIViewController, cartInfoModel: CartInfoModel?, animated: Bool = true) {
-        from.navigationController?.pushViewController(ShoppingBagBuilder.make(cartInfoModel: cartInfoModel), animated: animated)
+        let shoppingBagViewController = ShoppingBagBuilder.make(cartInfoModel: cartInfoModel)
+        from.navigationController?.pushViewController(shoppingBagViewController, animated: animated)
     }
     
     func navigateToProductDetail(from: UIViewController, model: ProductModel, animated: Bool = true) {

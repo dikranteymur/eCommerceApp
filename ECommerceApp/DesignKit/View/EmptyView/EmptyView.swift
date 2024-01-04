@@ -135,6 +135,7 @@ extension EmptyView {
     }
 }
 
+// MARK: - Actions
 extension EmptyView {
     
     @objc

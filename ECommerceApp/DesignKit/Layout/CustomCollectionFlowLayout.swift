@@ -20,7 +20,8 @@ public final class CustomCollectionFlowLayout: UICollectionViewFlowLayout {
     
     public override func prepare() {
         guard let collectionView = collectionView else { return }
-        let itemWidth = (collectionView.bounds.width - minimumInteritemSpacing) / 2
+        collectionView.contentInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        let itemWidth = (collectionView.bounds.width - minimumInteritemSpacing - 2 * collectionView.contentInset.left) / 2
         let itemHeight = itemWidth * 1.35
         itemSize = CGSize(width: itemWidth, height: itemHeight)
         super.prepare()

@@ -27,7 +27,6 @@ public final class ProductListCell: UICollectionViewCell {
         let button = UIButton(type: .system)
         button.tintColor = .colorGray
         button.setImage(UIImage(systemName: "heart"), for: .normal)
-        button.backgroundColor = .lightGray
         button.layer.cornerRadius = 16
         button.clipsToBounds = true
         return button
@@ -36,7 +35,7 @@ public final class ProductListCell: UICollectionViewCell {
     private let productNameLabel: UILabel = {
         let label = UILabel()
         label.font = .fontSemiBold16
-        label.textColor = .colorBlack
+        label.textColor = .tintColor
         label.numberOfLines = 2
         label.addShadow()
         return label
@@ -44,8 +43,8 @@ public final class ProductListCell: UICollectionViewCell {
     
     private let productPriceLabel: UILabel = {
         let label = UILabel()
-        label.font = .fontRegular12
-        label.textColor = .colorBlack
+        label.font = .fontSemiBold12
+        label.textColor = .tintColor
         label.addShadow()
         return label
     }()
@@ -113,8 +112,6 @@ extension ProductListCell {
         stackView.addArrangedSubview(productNameLabel)
         stackView.addArrangedSubview(productPriceLabel)
         stackView.addArrangedSubview(addToBagButton)
-//        addToBagButton.centerXToSuperview()
-//        addToBagButton.verticalToSuperview(insets: .vertical(4))
         addToBagButton.height(44)
     }
     
@@ -132,7 +129,8 @@ extension ProductListCell {
     private func configureContents() {
         productImageView.image = UIImage(named: viewModel?.imageString ?? "photo.fill.on.rectangle.fill")
         productNameLabel.text = viewModel?.name
-        productPriceLabel.text = viewModel?.price
+        productPriceLabel.text = viewModel?.getPriceAndCurrency()
+        addShadow()
         configureLikeButton()
         configureBagButton()
     }
@@ -140,8 +138,12 @@ extension ProductListCell {
     private func configureLikeButton() {
         if let isLike = viewModel?.isLike, isLike {
             likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            likeButton.tintColor = .tintColor
+            likeButton.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
         } else {
             likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            likeButton.tintColor = .colorGray
+            likeButton.transform = CGAffineTransform(scaleX: 1, y: 1)
         }
         likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
     }
@@ -156,7 +158,6 @@ extension ProductListCell {
     
     @objc
     private func likeButtonTapped() {
-        print(viewModel?.isLike)
         guard let id = viewModel?.id, let isLike = viewModel?.isLike else { return }
         delegate?.handleIsLike(id: id, isLike: !isLike)
     }

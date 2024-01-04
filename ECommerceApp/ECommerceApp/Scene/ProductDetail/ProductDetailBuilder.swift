@@ -9,6 +9,7 @@ import UIKit
 import NetworkKit
 
 final class ProductDetailBuilder {
+    
     static func make(model: ProductModel) -> ProductDetailViewController {
         let viewModel = ProductDetailViewModel(model: model)
         return ProductDetailViewController(viewModel: viewModel)

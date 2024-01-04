@@ -33,7 +33,7 @@ public struct ProductCacheHelper {
     
     public static func handleIsLikeStatus(id: Int, isLike: Bool) {
         var tempProductModels = getAllProductModels()
-        if let index = tempProductModels.firstIndex(where: { $0.id == id }){
+        if let index = tempProductModels.firstIndex(where: { $0.id == id }) {
             tempProductModels[index].isLike = isLike
         }
         saveData(model: tempProductModels, forKey: .forProductCache)
@@ -41,11 +41,6 @@ public struct ProductCacheHelper {
     
     public static func isSavedProductList() -> Bool {
         return UserDefaults.standard.bool(forKey: CacheKeys.forProductCacheIsSaved.rawValue)
-    }
-    
-    // TODO: - Deneme amacli tum product'lar silinecek
-    public static func resetProductList() {
-        UserDefaults.standard.set(false, forKey: CacheKeys.forProductCacheIsSaved.rawValue)
     }
     
     // For Cart Items
@@ -93,10 +88,6 @@ public struct ProductCacheHelper {
         UserDefaults.standard.removeObject(forKey: CacheKeys.forProductCacheIsSaved.rawValue)
     }
     
-    public static func removeCart() {
-        UserDefaults.standard.removeObject(forKey: CacheKeys.forCartCache.rawValue)
-    }
-    
     public static func removeAll() {
         UserDefaults.standard.removeObject(forKey: CacheKeys.forProductCache.rawValue)
         UserDefaults.standard.removeObject(forKey: CacheKeys.forProductCacheIsSaved.rawValue)
@@ -117,7 +108,7 @@ extension ProductCacheHelper {
         return models
     }
     
-    private static func sort(items: [ProductModel]) -> [ProductModel] {
+    public static func sort(items: [ProductModel]) -> [ProductModel] {
         return items.sorted { firstItem, secondItem in
             guard let firstPrice = firstItem.price, let secondPrice = secondItem.price else { return false }
             return firstPrice < secondPrice

@@ -27,7 +27,6 @@ final class ProductListViewController: BaseViewController<ProductListViewModel> 
         addSubviews()
         configureContents()
         subscribeViewModel()
-        addObservers()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -42,7 +41,7 @@ extension ProductListViewController {
     private func addSubviews() {
         view.addSubview(collectionView)
         collectionView.topToSuperview(usingSafeArea: true)
-        collectionView.horizontalToSuperview(insets: .horizontal(20))
+        collectionView.horizontalToSuperview(insets: .horizontal(0))
         collectionView.bottomToSuperview()
     }
 }
@@ -88,9 +87,9 @@ extension ProductListViewController {
         viewModel.reloadData = { [weak self] isEmpty in
             guard let self = self else { return }
             if isEmpty {
-                self.collectionView.setCustomEmptyView(header: "Hata!", 
-                                                       info: "Bir hata meydana geldi. Lutfen tekrar deneyiniz",
-                                                       buttontitle: "Yenile") { [weak self] in
+                self.collectionView.backgroundView = view.setCustomEmptyView(header: "Hata!",
+                                                                              info: "Bir hata meydana geldi. Lutfen tekrar deneyiniz",
+                                                                              buttontitle: "Yenile") { [weak self] in
                     guard let self = self else { return }
                     debugPrint("Yenile button calisti")
                 }
@@ -107,23 +106,6 @@ extension ProductListViewController {
     }
 }
 
-// MARK: - Observers
-extension ProductListViewController {
-    
-    private func addObservers() {
-//        NotificationCenter.addNotification(self, selector: #selector(reloadProductModels), name: .reloadProductModels)
-    }
-}
-
-// MARK: - Actions
-extension ProductListViewController {
-    
-    @objc
-    private func reloadProductModels() {
-        viewModel.reloadProductModels()
-    }
-}
-
 // MARK: - BagViewDelegate
 extension ProductListViewController: BagViewDelegate {
     
@@ -132,6 +114,7 @@ extension ProductListViewController: BagViewDelegate {
     }
 }
 
+// MARK: - ProductListCellDelegate
 extension ProductListViewController: ProductListCellDelegate {
     
     func handleIsLike(id: Int, isLike: Bool) {
