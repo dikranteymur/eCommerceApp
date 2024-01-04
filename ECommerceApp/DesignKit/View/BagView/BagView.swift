@@ -18,7 +18,7 @@ public final class BagView: UIView {
     
     private lazy var bagButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setBackgroundImage(UIImage(systemName: "bag.fill"), for: .normal)
+        button.setBackgroundImage(UIImage(systemName: "bag"), for: .normal)
         button.tintColor = .tintColor
         return button
     }()
@@ -27,7 +27,7 @@ public final class BagView: UIView {
         let label = UILabel()
         label.font = .fontRegular20
         label.textAlignment = .center
-        label.textColor = .colorWhite
+        label.textColor = .colorBlack
         return label
     }()
     
@@ -35,7 +35,6 @@ public final class BagView: UIView {
         super.init(frame: frame)
         addSubviews()
         configureContens()
-        addObserver()
     }
     
     public required init?(coder: NSCoder) {
@@ -55,8 +54,6 @@ public final class BagView: UIView {
     
     deinit {
         debugPrint("deinit \(self)")
-        // TODO: - Ekran yok oldugunda burayi kontrol et
-        NotificationCenter.removeNotification(self, name: .setBagTotalNumber)
     }
 }
 
@@ -127,13 +124,5 @@ extension BagView {
         default:
             return ""
         }
-    }
-}
-
-// MARK: - Observer
-extension BagView {
-    
-    private func addObserver() {
-        NotificationCenter.addNotification(self, selector: #selector(handleBagTotalNumber), name: .setBagTotalNumber)
     }
 }

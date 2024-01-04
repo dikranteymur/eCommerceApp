@@ -92,7 +92,7 @@ final class ProductDetailViewController: BaseViewController<ProductDetailViewMod
 extension ProductDetailViewController {
     
     private func addSubviews() {
-        addNavigationBar()
+//        addNavigationBar()
         addScrollView()
         addProductImageView()
         addInfoStackView()
@@ -107,7 +107,8 @@ extension ProductDetailViewController {
     
     private func addScrollView() {
         view.addSubview(scrollView)
-        scrollView.topToBottom(of: navigationBar)
+//        scrollView.topToBottom(of: navigationBar)
+        scrollView.topToSuperview(usingSafeArea: true)
         scrollView.horizontalToSuperview()
         scrollView.bottomToSuperview()
     }
@@ -149,17 +150,24 @@ extension ProductDetailViewController {
     }
     
     private func configureNavBar() {
-        let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = .colorGray
-        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.tintColor]
-        navigationBar.standardAppearance = appearance
-        let navigationItem = UINavigationItem(title: viewModel.model?.name ?? "")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: navigationRightItemButtonView)
-        navigationBar.items = [navigationItem]
+//        let appearance = UINavigationBarAppearance()
+//        appearance.backgroundColor = .colorGray
+//        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.tintColor]
+//        navigationBar.standardAppearance = appearance
+//        let navigationItem = UINavigationItem(title: viewModel.model?.name ?? "")
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: navigationRightItemButtonView)
+//        navigationBar.items = [navigationItem]
+//        
+//        if let isLike = viewModel.isLike, isLike {
+//            updateIsLikeButton(isLike: isLike)
+//        }
+//        navigationRightItemButtonView.addButtonAction = { [weak self] in
+//            guard let self = self else { return }
+//            self.viewModel.handleLikeButtonTapped()
+//        }
         
-        if let isLike = viewModel.isLike, isLike {
-            updateIsLikeButton(isLike: isLike)
-        }
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: navigationRightItemButtonView)
+        navigationItem.title = viewModel.getProductName()
         navigationRightItemButtonView.addButtonAction = { [weak self] in
             guard let self = self else { return }
             self.viewModel.handleLikeButtonTapped()

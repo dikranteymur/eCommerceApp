@@ -30,14 +30,14 @@ final class OrderConfirmationViewController: BaseViewController<OrderConfirmatio
     
     private let totalItemCountLabel: UILabel = {
         let label = UILabel()
-        label.font = .fontRegular12
+        label.font = .fontRegular14
         label.textColor = .colorGray
         return label
     }()
     
     private let totalAmountLabel: UILabel = {
         let label = UILabel()
-        label.font = .fontRegular12
+        label.font = .fontSemiBold16
         label.textColor = .colorBlack
         return label
     }()

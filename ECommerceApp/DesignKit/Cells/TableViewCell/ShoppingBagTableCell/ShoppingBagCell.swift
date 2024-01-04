@@ -9,6 +9,7 @@ import UIKit
 
 public protocol ShoppingBagCellDelegate: AnyObject {
     func removeItemFromBag(id: Int)
+    func updateMiniCart(id: Int)
     func navigateToProductDetail(id: Int)
 }
 
@@ -144,6 +145,7 @@ extension ShoppingBagCell {
         configureLabels()
         configurePlusButton()
         configureMinusOrRemoveButton()
+        updateMinusOrRemoveButtonStatus()
     }
     
     private func configureProductImageView() {
@@ -160,7 +162,7 @@ extension ShoppingBagCell {
     }
     
     private func configurePlusButton() {
-        plusButton.addTarget(self, action: #selector(pluseButtonTapped), for: .touchUpInside)
+        plusButton.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
     }
     
     private func configureMinusOrRemoveButton() {
@@ -172,14 +174,20 @@ extension ShoppingBagCell {
 extension ShoppingBagCell {
     
     @objc
-    private func pluseButtonTapped() {
-        viewModel?.handlePlusButton()
+    private func plusButtonTapped() {
+        viewModel?.addToCart()
+        if let count = viewModel?.count {
+            viewModel?.count = count + 1
+        }
         updateItemCountLabelAndButtons()
     }
     
     @objc
     private func minusOrRemoveButtonTapped() {
-        viewModel?.handleMinusOrRemoveButton()
+        viewModel?.removeFromCart()
+        if let count = viewModel?.count {
+            viewModel?.count = count - 1
+        }
         updateItemCountLabelAndButtons()
     }
     
@@ -194,12 +202,9 @@ extension ShoppingBagCell {
 extension ShoppingBagCell {
     
     private func updateItemCountLabelAndButtons() {
-        updateItemCountLabel()
+        guard let id = viewModel?.id else { return }
+        delegate?.updateMiniCart(id: id)
         updateMinusOrRemoveButtonStatus()
-    }
-    
-    private func updateItemCountLabel() {
-        itemCountLabel.text = viewModel?.getTotalItemCount()
     }
     
     private func updateMinusOrRemoveButtonStatus() {
@@ -211,7 +216,6 @@ extension ShoppingBagCell {
         case .willRemove:
             guard let id = viewModel?.id else { return }
             delegate?.removeItemFromBag(id: id)
-            return
         default:
             return
         }

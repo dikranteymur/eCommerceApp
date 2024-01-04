@@ -28,14 +28,14 @@ final class ShoppingBagViewController: BaseViewController<ShoppingBagViewModel> 
     
     private let totalItemCountLabel: UILabel = {
         let label = UILabel()
-        label.font = .fontRegular12
+        label.font = .fontRegular14
         label.textColor = .colorGray
         return label
     }()
     
     private let totalAmountLabel: UILabel = {
         let label = UILabel()
-        label.font = .fontRegular12
+        label.font = .fontSemiBold16
         label.textColor = .colorBlack
         return label
     }()
@@ -163,11 +163,11 @@ extension ShoppingBagViewController {
   
     @objc
     private func orderConfirmationButtonTapped() {
-        let cartInfoModel = viewModel.getCartInfoModel()
-        if cartInfoModel.totalItems == 0 {
+        let cartInfoModel = viewModel.updateCartInfoModel()
+        if cartInfoModel?.totalItems == 0 {
             showAlert(header: "Hata", message: "Sepetiniz bos oldugundan dolayi sepete onay veremezsiniz.")
         } else {
-            app.router.navigateToOrderConfirmation(from: self, cartInfoModel: viewModel.getCartInfoModel())
+            app.router.navigateToOrderConfirmation(from: self, cartInfoModel: viewModel.updateCartInfoModel())
         }
     }
 }
@@ -205,5 +205,15 @@ extension ShoppingBagViewController: ShoppingBagCellDelegate {
             let viewController = ProductDetailBuilder.make(model: model)
             navigationController?.present(viewController, animated: true)
         }
+    }
+    
+    func updateMiniCart(id: Int) {
+        viewModel.updateCartInfoModel()
+        totalItemCountLabel.text = viewModel.getCartTotalItems()
+        totalAmountLabel.text = viewModel.getCartTotalAmount()
+        guard let indexPath = viewModel.getRowIndex(id: id) else { return }
+        tableView.beginUpdates()
+        tableView.reloadRows(at: [indexPath], with: .fade)
+        tableView.endUpdates()
     }
 }

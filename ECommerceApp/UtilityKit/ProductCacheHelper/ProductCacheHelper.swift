@@ -24,7 +24,7 @@ public struct ProductCacheHelper {
     }
     
     public static func getAllProductModels() -> [ProductModel] {
-        return getData(model: ProductModel.self, forKey: .forProductCache)
+        return sort(items: getData(model: ProductModel.self, forKey: .forProductCache))
     }
     
     public static func getProductModelFrom(id: Int) -> ProductModel? {
@@ -37,7 +37,6 @@ public struct ProductCacheHelper {
             tempProductModels[index].isLike = isLike
         }
         saveData(model: tempProductModels, forKey: .forProductCache)
-        NotificationCenter.postNotification(name: .reloadProductModels)
     }
     
     public static func isSavedProductList() -> Bool {
@@ -51,7 +50,7 @@ public struct ProductCacheHelper {
     
     // For Cart Items
     public static func getCart() -> [ProductModel] {
-        return getData(model: ProductModel.self, forKey: .forCartCache)
+        return sort(items: getData(model: ProductModel.self, forKey: .forCartCache))
     }
     
     @discardableResult
@@ -70,17 +69,24 @@ public struct ProductCacheHelper {
             }
         } else {
             if let model = getProductModelFrom(id: id) {
-                cartItems.append(model)
+                var tempModel = model
+                tempModel.count = 1
+                cartItems.append(tempModel)
             }
         }
         saveData(model: cartItems, forKey: .forCartCache)
     }
-    public static func removeToCart(id: Int) {
-        var tempCartItems = getCart()
-        if let index = tempCartItems.firstIndex(where: { $0.id == id }) {
-            tempCartItems.remove(at: index)
+    
+    public static func removeFromCart(id: Int) {
+        var cartItems = getCart()
+        if let index = cartItems.firstIndex(where: { $0.id == id }) {
+            if let count = cartItems[index].count, count > 1 {
+                cartItems[index].count = count - 1
+            } else {
+                cartItems.remove(at: index)
+            }
         }
-        saveCart(value: tempCartItems)
+        saveData(model: cartItems, forKey: .forCartCache)
     }
 
     public static func removeProductIsSaved() {
@@ -109,5 +115,12 @@ extension ProductCacheHelper {
         guard let data = UserDefaults.standard.value(forKey: forKey.rawValue) as? Data,
               let models = try? PropertyListDecoder().decode([T].self, from: data) else { return [] }
         return models
+    }
+    
+    private static func sort(items: [ProductModel]) -> [ProductModel] {
+        return items.sorted { firstItem, secondItem in
+            guard let firstPrice = firstItem.price, let secondPrice = secondItem.price else { return false }
+            return firstPrice < secondPrice
+        }
     }
 }

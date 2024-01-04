@@ -76,10 +76,18 @@ final class ProductListViewModel: BaseViewModel, ProductListViewModelProtocol {
     }
     
     func getCartInfoModel() -> CartInfoModel {
-        let cart: [ProductModel] = ProductCacheHelper.getCart()
+        let cartItems = ProductCacheHelper.getCart()
+        var totalItems: Int = 0
         var totalAmount: Double = 0
-        cart.forEach({ totalAmount += $0.price ?? 0})
-        return CartInfoModel(totalItems: cart.count, totalAmount: totalAmount)
+        cartItems.forEach { item in
+            if let price = item.price, let count = item.count {
+                totalAmount += Double(count) * price
+            }
+            if let count = item.count {
+                totalItems += count
+            }
+        }
+        return CartInfoModel(totalItems: totalItems, totalAmount: totalAmount)
     }
     
     func handleIsLike(id: Int, isLike: Bool) {
@@ -103,11 +111,9 @@ final class ProductListViewModel: BaseViewModel, ProductListViewModelProtocol {
 extension ProductListViewModel {
     
     private func configureCellItems(result: [ProductModel]) {
-        let sortedResult = result.sorted { firstItem, secondItem in
-            guard let firstPrice = firstItem.price, let secondPrice = secondItem.price else { return false }
-            return firstPrice < secondPrice
-        }
-        productItemList.append(contentsOf: sortedResult.map({ ProductListCellModel(model: $0) }))
-        productModels = sortedResult
+        productItemList.removeAll()
+        productModels.removeAll()
+        productItemList.append(contentsOf: result.map({ ProductListCellModel(model: $0) }))
+        productModels = result
     }
 }

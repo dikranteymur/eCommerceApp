@@ -29,9 +29,9 @@ public protocol ShoppingBagCellModelDataSource: AnyObject {
 public protocol ShoppingBagCellModelProtocol: ShoppingBagCellModelEvents, ShoppingBagCellModelDataSource {
     func getPriceAndCurrency() -> String
     func getTotalItemCount() -> String
-    func handlePlusButton()
-    func handleMinusOrRemoveButton()
     func minusOrRemoveButtonStatus() -> RemoveButtonStatus
+    func addToCart()
+    func removeFromCart()
 }
 
 public final class ShoppingBagCellModel: ShoppingBagCellModelProtocol {
@@ -69,16 +69,16 @@ public final class ShoppingBagCellModel: ShoppingBagCellModelProtocol {
         return String(count)
     }
     
-    public func handlePlusButton() {
-        if let count = count {
-            self.count = count + 1
-        }
+    public func addToCart() {
+        guard let id = id else { return }
+        ProductCacheHelper.addToCart(id: id)
+
     }
     
-    public func handleMinusOrRemoveButton() {
-        if let count = count {
-            self.count = count - 1
-        }
+    public func removeFromCart() {
+        guard let id = id else { return }
+        ProductCacheHelper.removeFromCart(id: id)
+
     }
     
     public func minusOrRemoveButtonStatus() -> RemoveButtonStatus {

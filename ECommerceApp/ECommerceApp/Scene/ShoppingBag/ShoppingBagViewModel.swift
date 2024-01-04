@@ -21,7 +21,8 @@ protocol ShoppingBagViewModelDataSource: AnyObject {
     func cellForItemAt(indexPath: IndexPath) -> ShoppingBagCellModelProtocol?
     func removeItemFor(id: Int)
     func productModelForNavigate(id: Int) -> ProductModel?
-    func getCartInfoModel() -> CartInfoModel
+    func updateCartInfoModel() -> CartInfoModel?
+    func getRowIndex(id: Int) -> IndexPath?
 }
 
 protocol ShoppingBagViewModelProtocol: ShoppingBagViewModelEvents, ShoppingBagViewModelDataSource {}
@@ -43,21 +44,17 @@ final class ShoppingBagViewModel: BaseViewModel, ShoppingBagViewModelProtocol {
     
     func getCartTotalItems() -> String? {
         guard let totalItems = cartInfoModel?.totalItems else { return "" }
-        return String(totalItems)
+        return String("Adet: \(totalItems)")
     }
     
     func getCartTotalAmount() -> String? {
         guard let totalAmount = cartInfoModel?.totalAmount else { return "" }
         let amount = String(format: "%.2f", totalAmount)
-        return "\(amount) \(cartInfoModel?.currency ?? "")"
+        return "Toplam: \(amount) \(cartInfoModel?.currency ?? "")"
     }
     
     func didLoad() {
         cartItems = ProductCacheHelper.getCart()
-        cartItems = cartItems.sorted { firstItem, secondItem in
-            guard let firstPrice = firstItem.price, let secondPrice = secondItem.price else { return false }
-            return firstPrice < secondPrice
-        }
         reloadData?(cartItems.isEmpty)
     }
     
@@ -70,7 +67,7 @@ final class ShoppingBagViewModel: BaseViewModel, ShoppingBagViewModelProtocol {
     }
     
     func removeItemFor(id: Int) {
-        ProductCacheHelper.removeToCart(id: id)
+        ProductCacheHelper.removeFromCart(id: id)
         cartItems = ProductCacheHelper.getCart()
         reloadData?(cartItems.isEmpty)
     }
@@ -79,10 +76,28 @@ final class ShoppingBagViewModel: BaseViewModel, ShoppingBagViewModelProtocol {
         return cartItems.first(where: { $0.id == id })
     }
     
-    func getCartInfoModel() -> CartInfoModel {
-        let cart: [ProductModel] = ProductCacheHelper.getCart()
+    @discardableResult
+    func updateCartInfoModel() -> CartInfoModel? {
+        let cartItems = ProductCacheHelper.getCart()
+        var totalItems: Int = 0
         var totalAmount: Double = 0
-        cart.forEach({ totalAmount += $0.price ?? 0})
-        return CartInfoModel(totalItems: cart.count, totalAmount: totalAmount)
+        cartItems.forEach { item in
+            if let price = item.price, let count = item.count {
+                totalAmount += Double(count) * price
+            }
+            if let count = item.count {
+                totalItems += count
+            }
+        }
+        cartInfoModel = CartInfoModel(totalItems: totalItems, totalAmount: totalAmount)
+        return cartInfoModel
+    }
+    
+    func getRowIndex(id: Int) -> IndexPath? {
+        cartItems = ProductCacheHelper.getCart()
+        if let index = cartItems.firstIndex(where: { $0.id == id }) {
+            return IndexPath(row: index, section: 0)
+        }
+        return nil
     }
 }

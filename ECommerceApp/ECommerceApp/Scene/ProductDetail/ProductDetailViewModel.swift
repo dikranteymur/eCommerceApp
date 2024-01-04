@@ -20,6 +20,7 @@ protocol ProductDetailViewModelDataSource: AnyObject {
     func getPriceAndCurrency() -> String
     func addToCart()
     func handleLikeButtonTapped()
+    func getProductName() -> String
 }
 
 protocol ProductDetailViewModelProtocol: ProductDetailViewModelEvents, ProductDetailViewModelDataSource {}
@@ -63,5 +64,9 @@ final class ProductDetailViewModel: BaseViewModel, ProductDetailViewModelProtoco
     func addToCart() {
         guard let id = model?.id else { return }
         ProductCacheHelper.addToCart(id: id)
+    }
+    
+    func getProductName() -> String {
+        return model?.name ?? ""
     }
 }

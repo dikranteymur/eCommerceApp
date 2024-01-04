@@ -10,7 +10,7 @@ public struct CartInfoModel {
     public var totalAmount: Double?
     public var currency: String?
     
-    public init(totalItems: Int? = nil, totalAmount: Double? = nil, currency: String? = "USD") {
+    public init(totalItems: Int?, totalAmount: Double?, currency: String? = "USD") {
         self.totalItems = totalItems
         self.totalAmount = totalAmount
         self.currency = currency

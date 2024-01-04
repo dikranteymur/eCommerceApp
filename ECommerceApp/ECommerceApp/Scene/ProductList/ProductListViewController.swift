@@ -28,6 +28,10 @@ final class ProductListViewController: BaseViewController<ProductListViewModel> 
         configureContents()
         subscribeViewModel()
         addObservers()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         viewModel.didLoad()
     }
 }
@@ -57,11 +61,8 @@ extension ProductListViewController {
 extension ProductListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let viewModel = viewModel.productItemModelAt(indexPath: indexPath) else { return }
-        let productDetailViewController = ProductDetailBuilder.make(model: viewModel)
-        productDetailViewController.modalPresentationStyle = .pageSheet
-        productDetailViewController.modalTransitionStyle = .flipHorizontal
-        navigationController?.present(productDetailViewController, animated: true)
+        guard let model = viewModel.productItemModelAt(indexPath: indexPath) else { return }
+        app.router.navigateToProductDetail(from: self, model: model)
     }
 }
 
@@ -110,7 +111,7 @@ extension ProductListViewController {
 extension ProductListViewController {
     
     private func addObservers() {
-        NotificationCenter.addNotification(self, selector: #selector(reloadProductModels), name: .reloadProductModels)
+//        NotificationCenter.addNotification(self, selector: #selector(reloadProductModels), name: .reloadProductModels)
     }
 }
 

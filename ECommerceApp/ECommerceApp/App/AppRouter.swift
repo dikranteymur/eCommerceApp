@@ -37,6 +37,10 @@ final class AppRouter {
             self.window.rootViewController = navigationController
         })
     }
+}
+
+// Navigation Scene
+extension AppRouter {
     
     func navigateToOrderConfirmation(from: UIViewController, cartInfoModel: CartInfoModel?, animated: Bool = true) {
         from.navigationController?.pushViewController(OrderConfirmationBuilder.make(cartInfoModel: cartInfoModel), animated: animated)
@@ -44,5 +48,10 @@ final class AppRouter {
     
     func navigaToShoppingBagViewController(from: UIViewController, cartInfoModel: CartInfoModel?, animated: Bool = true) {
         from.navigationController?.pushViewController(ShoppingBagBuilder.make(cartInfoModel: cartInfoModel), animated: animated)
+    }
+    
+    func navigateToProductDetail(from: UIViewController, model: ProductModel, animated: Bool = true) {
+        let productDetailViewController = ProductDetailBuilder.make(model: model)
+        from.navigationController?.pushViewController(productDetailViewController, animated: animated)
     }
 }

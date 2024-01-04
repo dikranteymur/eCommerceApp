@@ -9,8 +9,5 @@ import Foundation
 
 public extension Notification.Name {
     
-    static let setBagTotalNumber = Notification.Name("set_bag_total_number")
-    static let decreaseBagTotalNumber = Notification.Name("decrease_bag_total_number")
-    static let resetBagTotalNumber = Notification.Name("reset_bag_total_number")
-    static let reloadProductModels = Notification.Name("reload_product_models")
+    static let removedCellIndex = Notification.Name("removedCellIndex")
 }

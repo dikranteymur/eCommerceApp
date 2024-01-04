@@ -30,12 +30,12 @@ final class OrderConfirmationViewModel: BaseViewModel, OrderConfirmationViewMode
 
     func getCartTotalItems() -> String? {
         guard let totalItems = cartInfoModel?.totalItems else { return "" }
-        return String(totalItems)
+        return String("Adet: \(totalItems)")
     }
     
     func getCartTotalAmount() -> String? {
         guard let totalAmount = cartInfoModel?.totalAmount else { return "" }
         let amount = String(format: "%.2f", totalAmount)
-        return "\(amount) \(cartInfoModel?.currency ?? "")"
+        return "Toplam: \(amount) \(cartInfoModel?.currency ?? "")"
     }
 }
